@@ -11,7 +11,6 @@ namespace SLfitness
         protected string name;
         protected string description;
         protected int calories;
-        protected string type;
         protected int fat;
         protected int chef;
         protected byte[] image;
@@ -22,9 +21,8 @@ namespace SLfitness
         public int Fat { get { return fat; } set { fat = value; } }
         public int Chef { get { return chef; } set { chef = value; } }
         public byte[] Image { get { return image; } set { image = value; } }
-        public string Type { get { return type; } set { type = value; } }
-
-        public Diet(string name, string desription, int calories, int fat, int chef, byte[] image, string type)
+        
+        public Diet(string name, string desription, int calories, int fat, int chef, byte[] image)
         {
             this.name = name;
             this.description = desription;
@@ -32,7 +30,6 @@ namespace SLfitness
             this.fat = fat;
             this.chef = chef;
             this.image = image;
-            this.type = type;
         }
     }
 }

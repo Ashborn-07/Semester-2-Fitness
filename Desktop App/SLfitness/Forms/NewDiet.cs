@@ -52,24 +52,23 @@ namespace SLfitness
             BinaryReader br = new BinaryReader(fs);
             byte[] image = new byte[br.BaseStream.Length];
 
+            dietHandler = new DietsHandler();
+
             if (cbType.SelectedIndex == -1)
             {
                 MessageBox.Show("Choose Type!");
                 return;
             }
-            else if (cbType.SelectedItem.ToString().Equals("Healthy"))
-            {
-
-            }
             else if (cbType.SelectedItem.ToString().Equals("Zero Carbs"))
             {
-
+                ZeroCarbsDiet diet = dietHandler.GetCarbsDiet(tbName.Text, tbDescription.Text, activeUserID, image, (int)numCalories.Value, (int)numFat.Value);
+                dietHandler.AddDiet(diet);
             }
-
-            dietHandler = new DietsHandler();
-
-            
-            
+            else if (cbType.SelectedItem.ToString().Equals("Healthy"))
+            {
+                HealthyDiet diet = dietHandler.GetHealthy(tbName.Text, tbDescription.Text, activeUserID, image, (int)numCalories.Value, (int)numFat.Value, (int)numCarbs.Value);
+                dietHandler.AddDiet(diet);
+            }
         }
 
         private void NewDiet_Load(object sender, EventArgs e)

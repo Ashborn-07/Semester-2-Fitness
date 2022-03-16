@@ -13,24 +13,20 @@ namespace SLfitness
     {
         public int AddDiet(Diet diet)
         {
-            string sql = "INSERT INTO indiv_diets (`name`, `type`, `description`, `chef`, `calories`, `fat`, `carbs`, `image`) VALUES (@Name, @Type, @Description, @Chef, @Calories, @Fat, @Carbs, @Image)";
+            Connect();
+            string sql = "INSERT INTO indiv_diets (`name`, `description`, `chef`, `image`) VALUES (@Name, @Description, @Chef, @Image)";
+
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@Name", diet.Name);
-            Cmd.Parameters.AddWithValue("@Type", diet.Type);
             Cmd.Parameters.AddWithValue("@Description", diet.Description);
             Cmd.Parameters.AddWithValue("@Chef", diet.Chef);
-            Cmd.Parameters.AddWithValue("@Calories", diet.Calories);
-            Cmd.Parameters.AddWithValue("@Fat", diet.Fat);
-            Cmd.Parameters.AddWithValue("@Carbs", );
             Cmd.Parameters.AddWithValue("@Image", diet.Image);
-
-            int i = -1;
 
             try
             {
-                i = Cmd.ExecuteNonQuery();
-                
-            }catch(MySqlException e)
+                Cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
             {
                 MessageBox.Show(e.ToString());
             }
@@ -39,7 +35,105 @@ namespace SLfitness
                 Disconnect();
             }
 
+            int i = 0;
+            int id = GetIdDiet(diet.Name, diet.Description);
+            
+            switch (diet)
+            {
+                case ZeroCarbsDiet:
+                    i = AddZeroCarbsDiet(id, diet.Calories, diet.Fat);
+                    break;
+                case HealthyDiet:
+                    i = AddHealthyDiet(id, diet.Calories, diet.Fat, ((HealthyDiet)diet).Carbs);
+                    break;
+                default:
+                    i = -1;
+                    break;
+            }
+
             return i;
+        }
+
+        private int AddHealthyDiet(int id, int calories, int fat, int carbs)
+        {
+            int i = -1;
+            Connect();
+
+            string sql = "INSERT INTO indiv_healthy_diets (`id`, `calories`, `fat`, `carbs`) VALUES (@Id, @Calories, @Fat, @Carbs)";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@Id", id);
+            Cmd.Parameters.AddWithValue("@Calories", calories);
+            Cmd.Parameters.AddWithValue("@Fat", fat);
+            Cmd.Parameters.AddWithValue("@Carbs", carbs);
+
+            try
+            {
+                i = Cmd.ExecuteNonQuery();
+            }catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            } finally
+            {
+                Disconnect();
+            }
+
+            return i;
+        }
+
+        private int AddZeroCarbsDiet(int id, int calories, int fat)
+        {
+            int i = -1;
+            Connect();
+
+            string sql = "INSERT INTO indiv_zerocarbs_diets (`id`, `calories`, `fat`) VALUES (@Id, @Calories, @Fat)";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@Id", id);
+            Cmd.Parameters.AddWithValue("@Calories", calories);
+            Cmd.Parameters.AddWithValue("@Fat", fat);
+
+            try
+            {
+                i = Cmd.ExecuteNonQuery();
+            } catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            } finally
+            {
+                Disconnect();
+            }
+
+            return i;  
+        }
+
+        private int GetIdDiet(string name, string description)
+        {
+            Connect();
+
+            string sql = "SELECT `id` FROM indiv_diets WHERE name LIKE @Name AND description LIKE @Description";
+
+            Cmd = new MySqlCommand(sql, Con);
+
+            Cmd.Parameters.AddWithValue("@Name", name);
+            Cmd.Parameters.AddWithValue("@Description", description);
+
+            int id = -1;
+
+            try
+            {
+                Reader = Cmd.ExecuteReader();
+                if (Reader.Read())
+                {
+                    id = Reader.GetInt32(0);
+                }
+            } catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            } finally
+            {
+                Disconnect();
+            }
+
+            return id;
         }
 
         public void DisplayDiets(DataGridView dgv)
@@ -51,11 +145,11 @@ namespace SLfitness
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dt = new DataTable();
-            
+
             try
             {
                 adapter.Fill(dt);
-                dgv.DataSource = dt ;
+                dgv.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -65,7 +159,7 @@ namespace SLfitness
             {
                 Disconnect();
             }
-        } 
+        }
 
         public Image GetImage(int id)
         {
@@ -78,7 +172,8 @@ namespace SLfitness
             try
             {
                 Reader = Cmd.ExecuteReader();
-            } catch (MySqlException ex)
+            }
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -96,21 +191,20 @@ namespace SLfitness
             return null;
         }
 
-        public HealthyDiet CreateHealthyDiet(string name, string description, string type, int calories, int fat, int carbs, byte[] image)
+        public HealthyDiet GetHealthy(string name, string description, int chef, byte[] image, int calories, int fat, int carbs)
         {
-            HealthyDiet diet;
+            HealthyDiet healthyDiet = new HealthyDiet(name, description, calories, fat, chef, image, carbs);
 
-            
-            return null;
+            return healthyDiet;
         }
 
-        public ZeroCarbsDiet CreateZeroCarbsDiet(string name, string description, string type, int calories, int fat, byte[] image)
+        public ZeroCarbsDiet GetCarbsDiet(string name, string description, int chef, byte[] image, int calories, int fat)
         {
-            ZeroCarbsDiet diet;
+            ZeroCarbsDiet zeroCarbsDiet = new ZeroCarbsDiet(name, description, calories, fat, chef, image);
 
-            
-
-            return null;
+            return zeroCarbsDiet;
         }
+
+
     }
 }
