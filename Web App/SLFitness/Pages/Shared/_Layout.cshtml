@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SLFitness</title>
+   
+</head>
+<body>
+   <header class="header">
+
+    <a href="#" class="logo"> <span>SL</span>FIT </a>
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a asp-page="/Index">home</a>
+        <a asp-page="/Index">about</a>
+        <a asp-page="">membership</a>
+        <a asp-page="">equipment</a>
+        <a asp-page="">trainers</a>
+        <a asp-page="">diets</a>
+        <a asp-page="">Sign in</a>
+        <a asp-page="/Register">Sign Up</a>
+    </nav>
+
+</header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - SLFitness - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿@page
+@model SLFitness.Pages.RegisterModel
+@{
+    
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLFIT</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" /> -->
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="~/css/Register.css">
+
+</head>
+<body>
+
+<form method="post" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>@Model.PageTitle</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label asp-for="Registration.Email"><b>Email</b></label>
+    <span asp-validation-for="Registration.Email" style="color: red"></span>
+    <input asp-for="Registration.Email" placeholder="Enter Email">
+
+    <label asp-for="Registration.Username"><b>Username</b></label>
+    <span asp-validation-for="Registration.Username" style="color: red"></span>
+    <input asp-for="Registration.Username" placeholder="Enter Username">
+
+    <label asp-for="Registration.FirstName"><b>First Name</b></label>
+    <span asp-validation-for="Registration.FirstName" style="color: red"></span>
+    <input asp-for="Registration.FirstName" placeholder="Enter your first name">
+
+    <label asp-for="Registration.LastName"><b>Last Name</b></label>
+    <span asp-validation-for="Registration.LastName" style="color: red"></span>
+    <input asp-for="Registration.LastName" placeholder="Enter your last name">
+
+    <label asp-for="Registration.Password"><b>Password</b></label>
+    <span asp-validation-for="Registration.Password" style="color: red"></span>
+    <input asp-for="Registration.Password" placeholder="Enter Password">
+
+    <label asp-for="Registration.ConfirmPassword"><b>Repeat Password</b></label>
+    <span asp-validation-for="Registration.ConfirmPassword" style="color: red"></span>
+    <input asp-for="Registration.ConfirmPassword" placeholder="Repeat Password">
+    
+    
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="submit" class="signupbtn">Sign Up</button>
+      <button type="reset" class="cancelbtn">Cancel</button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>
