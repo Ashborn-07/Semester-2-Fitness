@@ -161,11 +161,57 @@ namespace SLfitness
             }
         }
 
+        public void DisplayHealthyDiets(DataGridView dgv)
+        {
+            Connect();
+            string sql = "SELECT `id`, `name`, `description`, `chef` FROM `indiv_diets` WHERE id IN (SELECT `id` FROM indiv_healthy_diets)";
+
+            Cmd = new MySqlCommand(sql, Con);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                adapter.Fill(dataTable);
+                dgv.DataSource = dataTable;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            } finally
+            {
+                Disconnect();
+            }
+        }
+
+        public void DisplayZaroCarbsDiets(DataGridView dgv)
+        {
+            Connect();
+            string sql = "SELECT `id`, `name`, `description`, `chef` FROM `indiv_diets` WHERE id IN (SELECT `id` FROM indiv_zerocarbs_diets)";
+
+            Cmd = new MySqlCommand(sql, Con);
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                adapter.Fill(dataTable);
+                dgv.DataSource = dataTable;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            } finally
+            {
+                Disconnect();
+            }
+        }
+
         public Image GetImage(int id)
         {
             Connect();
 
-            string sql = "SELECT image FROM indiv_diets WHERE id=@Id";
+            string sql = "SELECT `image` FROM indiv_diets WHERE id=@Id";
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@Id", id);
 
@@ -182,7 +228,7 @@ namespace SLfitness
             {
                 byte[] image = (byte[])(Reader["image"]);
                 MemoryStream ms = new MemoryStream(image);
-                Image img = Image.FromStream(ms);
+                Image img = new Bitmap(ms);
                 Disconnect();
                 return img;
             }

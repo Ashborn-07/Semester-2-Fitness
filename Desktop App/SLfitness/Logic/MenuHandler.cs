@@ -25,7 +25,7 @@ namespace SLfitness
             {
                 byte[] image = (byte[])(Reader["picture"]);
                 MemoryStream ms = new MemoryStream(image);
-                Image img = Image.FromStream(ms);
+                Image img = new Bitmap(ms);
                 Disconnect();
                 return img;
             }

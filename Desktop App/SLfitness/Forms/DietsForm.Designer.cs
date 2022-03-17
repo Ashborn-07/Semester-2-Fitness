@@ -33,12 +33,13 @@
             this.dietBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dietBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFilter = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnAddDiet = new System.Windows.Forms.Button();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dietBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.image = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource1)).BeginInit();
@@ -54,6 +55,8 @@
             this.dataGridv.AllowUserToResizeColumns = false;
             this.dataGridv.AllowUserToResizeRows = false;
             this.dataGridv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.image});
             this.dataGridv.Location = new System.Drawing.Point(12, 45);
             this.dataGridv.MultiSelect = false;
             this.dataGridv.Name = "dataGridv";
@@ -74,7 +77,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.cbFilter);
             this.panel1.Controls.Add(this.btnRefresh);
             this.panel1.Controls.Add(this.btnAddDiet);
             this.panel1.Controls.Add(this.dataGridv);
@@ -84,13 +87,19 @@
             this.panel1.Size = new System.Drawing.Size(717, 308);
             this.panel1.TabIndex = 0;
             // 
-            // comboBox1
+            // cbFilter
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(149, 23);
-            this.comboBox1.TabIndex = 3;
+            this.cbFilter.FormattingEnabled = true;
+            this.cbFilter.Items.AddRange(new object[] {
+            "No filter",
+            "Zero Carbs",
+            "Healthy"});
+            this.cbFilter.Location = new System.Drawing.Point(12, 16);
+            this.cbFilter.Name = "cbFilter";
+            this.cbFilter.Size = new System.Drawing.Size(149, 23);
+            this.cbFilter.TabIndex = 3;
+            this.cbFilter.Text = "Filter";
+            this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnRefresh
             // 
@@ -148,6 +157,14 @@
             // 
             this.dietBindingSource.DataSource = typeof(SLfitness.Diet);
             // 
+            // image
+            // 
+            this.image.HeaderText = "image";
+            this.image.Name = "image";
+            this.image.ReadOnly = true;
+            this.image.Text = "image";
+            this.image.UseColumnTextForButtonValue = true;
+            // 
             // DietsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -183,6 +200,7 @@
         private BindingSource dietBindingSource;
         private BindingSource dietBindingSource1;
         private BindingSource dietBindingSource2;
-        private ComboBox comboBox1;
+        private ComboBox cbFilter;
+        private DataGridViewButtonColumn image;
     }
 }

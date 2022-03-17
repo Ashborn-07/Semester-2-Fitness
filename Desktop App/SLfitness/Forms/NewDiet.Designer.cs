@@ -97,6 +97,11 @@
             // numCarbs
             // 
             this.numCarbs.Location = new System.Drawing.Point(82, 242);
+            this.numCarbs.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numCarbs.Name = "numCarbs";
             this.numCarbs.Size = new System.Drawing.Size(150, 33);
             this.numCarbs.TabIndex = 14;
@@ -114,6 +119,11 @@
             // numFat
             // 
             this.numFat.Location = new System.Drawing.Point(58, 203);
+            this.numFat.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numFat.Name = "numFat";
             this.numFat.Size = new System.Drawing.Size(174, 33);
             this.numFat.TabIndex = 12;
@@ -131,6 +141,11 @@
             // numCalories
             // 
             this.numCalories.Location = new System.Drawing.Point(102, 165);
+            this.numCalories.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numCalories.Name = "numCalories";
             this.numCalories.Size = new System.Drawing.Size(130, 33);
             this.numCalories.TabIndex = 10;

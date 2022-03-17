@@ -42,13 +42,30 @@ namespace SLfitness
 
         private void dataGridv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.ColumnIndex == 4 && e.RowIndex != -1)
-            //{
-            //    string p = dataGridv.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //    int id = Convert.ToInt32(p);
-            //    DietImageForm dietImageForm = new DietImageForm(id);
-            //    dietImageForm.Show();
-            //}
+            if (e.ColumnIndex == 0 && e.RowIndex != -1)
+            {
+                string p = dataGridv.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int id = Convert.ToInt32(p);
+                DietImageForm dietImageForm = new DietImageForm(id);
+                dietImageForm.Show();
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dietsHandler = new DietsHandler();
+
+            if (cbFilter.SelectedItem.ToString().Equals("Zero Carbs"))
+            {
+                dietsHandler.DisplayZaroCarbsDiets(dataGridv);
+            }
+            else if (cbFilter.SelectedItem.ToString().Equals("Healthy"))
+            {
+                dietsHandler.DisplayHealthyDiets(dataGridv);
+            } else
+            {
+                dietsHandler.DisplayDiets(dataGridv);
+            }
         }
     }
 }

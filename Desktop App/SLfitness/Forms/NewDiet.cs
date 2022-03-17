@@ -12,7 +12,7 @@ namespace SLfitness
 {
     public partial class NewDiet : Form
     {
-        private string pictureName;
+        private byte[] picture;
         private int activeUserID;
         private DietsHandler dietHandler;
 
@@ -29,9 +29,16 @@ namespace SLfitness
 
             DialogResult result = openFileDialog.ShowDialog();
 
-            pictureName = openFileDialog.FileName;
-            picBoxDiet.Image = new Bitmap(pictureName);
-            picBoxDiet.SizeMode = PictureBoxSizeMode.StretchImage;
+            if (!String.IsNullOrEmpty(openFileDialog.FileName))
+            {
+                Image image = Image.FromFile(openFileDialog.FileName);
+                MemoryStream memoryStream = new MemoryStream();
+                image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Bmp);
+                picture = memoryStream.ToArray();
+
+                picBoxDiet.Image = image;
+                picBoxDiet.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
         }
 
         private void btnAddDiet_Click(object sender, EventArgs e)
@@ -48,10 +55,6 @@ namespace SLfitness
                 return;
             }
 
-            FileStream fs = new FileStream(pictureName, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs);
-            byte[] image = new byte[br.BaseStream.Length];
-
             dietHandler = new DietsHandler();
 
             if (cbType.SelectedIndex == -1)
@@ -61,13 +64,29 @@ namespace SLfitness
             }
             else if (cbType.SelectedItem.ToString().Equals("Zero Carbs"))
             {
-                ZeroCarbsDiet diet = dietHandler.GetCarbsDiet(tbName.Text, tbDescription.Text, activeUserID, image, (int)numCalories.Value, (int)numFat.Value);
+                ZeroCarbsDiet diet = dietHandler.GetCarbsDiet(tbName.Text, tbDescription.Text, activeUserID, picture, (int)numCalories.Value, (int)numFat.Value);
                 dietHandler.AddDiet(diet);
             }
             else if (cbType.SelectedItem.ToString().Equals("Healthy"))
             {
-                HealthyDiet diet = dietHandler.GetHealthy(tbName.Text, tbDescription.Text, activeUserID, image, (int)numCalories.Value, (int)numFat.Value, (int)numCarbs.Value);
+                HealthyDiet diet = dietHandler.GetHealthy(tbName.Text, tbDescription.Text, activeUserID, picture, (int)numCalories.Value, (int)numFat.Value, (int)numCarbs.Value);
                 dietHandler.AddDiet(diet);
+            }
+
+            DialogResult dr = MessageBox.Show("Do you want to add a new diet?", "", MessageBoxButtons.YesNo);
+
+            if (dr == DialogResult.Yes)
+            {
+                tbName.Text = "";
+                tbDescription.Text = "";
+                numCalories.Value = 0;
+                numFat.Value = 0;
+                numCarbs.Value = 0;
+                picBoxDiet.Image = null;
+            }
+            else if (dr == DialogResult.No)
+            {
+                this.Close();
             }
         }
 
