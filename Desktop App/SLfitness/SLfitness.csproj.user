@@ -19,5 +19,14 @@
     <Compile Update="Forms\NewDiet.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\UpdateDiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

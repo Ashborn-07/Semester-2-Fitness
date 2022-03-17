@@ -16,6 +16,9 @@ namespace SLfitness
         private int activeUserID;
         private DietsHandler dietHandler;
 
+        private string name;
+        private string description;
+
         public NewDiet(int activeUserID)
         {
             InitializeComponent();

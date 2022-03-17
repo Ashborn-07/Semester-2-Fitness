@@ -42,12 +42,17 @@ namespace SLfitness
 
         private void dataGridv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            string p = dataGridv.Rows[e.RowIndex].Cells[2].Value.ToString();
+            int id = Convert.ToInt32(p);
+
             if (e.ColumnIndex == 0 && e.RowIndex != -1)
             {
-                string p = dataGridv.Rows[e.RowIndex].Cells[1].Value.ToString();
-                int id = Convert.ToInt32(p);
                 DietImageForm dietImageForm = new DietImageForm(id);
                 dietImageForm.Show();
+            }
+            else if (e.ColumnIndex == 1 && e.RowIndex != -1)
+            {
+                //TODO with the UpdateDiet Form
             }
         }
 

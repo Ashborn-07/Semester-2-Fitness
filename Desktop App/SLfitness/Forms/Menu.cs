@@ -58,7 +58,9 @@ namespace SLfitness
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-
+            Schedule schedule = new Schedule(activeUserID);
+            schedule.Show();
+            this.Hide();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)

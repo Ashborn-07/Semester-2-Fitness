@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dietBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.image = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource1)).BeginInit();
@@ -56,7 +57,8 @@
             this.dataGridv.AllowUserToResizeRows = false;
             this.dataGridv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.image});
+            this.image,
+            this.Update});
             this.dataGridv.Location = new System.Drawing.Point(12, 45);
             this.dataGridv.MultiSelect = false;
             this.dataGridv.Name = "dataGridv";
@@ -165,6 +167,14 @@
             this.image.Text = "image";
             this.image.UseColumnTextForButtonValue = true;
             // 
+            // Update
+            // 
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.ReadOnly = true;
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            // 
             // DietsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -202,5 +212,6 @@
         private BindingSource dietBindingSource2;
         private ComboBox cbFilter;
         private DataGridViewButtonColumn image;
+        private DataGridViewButtonColumn Update;
     }
 }
