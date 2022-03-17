@@ -17,7 +17,7 @@ namespace SLFitness.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public void OnGet(int? id)
         {
 
         }

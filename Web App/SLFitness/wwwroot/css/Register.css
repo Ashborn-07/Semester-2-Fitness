@@ -166,6 +166,7 @@ input[type=text], input[type=password] {
     border: none;
     background: #f1f1f1;
     color: black;
+    text-transform: none;
 }
 
     input[type=text]:focus, input[type=password]:focus {
@@ -186,7 +187,6 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 175%;
     opacity: 0.9;
 }
 

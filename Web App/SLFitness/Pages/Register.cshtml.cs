@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using SLFitness.Models;
+using SLFitness.Logic;
 
 namespace SLFitness.Pages
 {
@@ -10,6 +11,8 @@ namespace SLFitness.Pages
 
         [BindProperty]
         public UserRegistration Registration { get; set; }
+
+        UserLogic logic;
 
         public RegisterModel()
         {
@@ -22,10 +25,15 @@ namespace SLFitness.Pages
 
         public IActionResult OnPost()
         {
+            logic = new UserLogic();
+
             if(ModelState.IsValid)
             {
                 //TODO
-                return RedirectToPage();
+                if (logic.CheckUserInputRegistration(Registration.Username, Registration.Password, Registration.Email, Registration.FirstName, Registration.LastName))
+                {
+                    return RedirectToPage("SignIn");
+                }
             }
 
             return Page();

@@ -23,7 +23,7 @@ namespace SLfitness
 
         private void btnAddAppointment_Click(object sender, EventArgs e)
         {
-
+            //TODO
         }
 
         private void btnResetFilters_Click(object sender, EventArgs e)
@@ -57,6 +57,7 @@ namespace SLfitness
         private void dateTimePick_ValueChanged(object sender, EventArgs e)
         {
             //probably change to calendar for date and combo box for time
+            //add filter option with hour and different coaches/users(maybe)
             scheduleHandler = new ScheduleHandler();
             DateTime dateTime = dateTimePick.Value;
             string date = dateTime.ToString("yyyy-MM--dd");

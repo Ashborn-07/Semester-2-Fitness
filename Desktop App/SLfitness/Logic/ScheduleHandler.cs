@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SLfitness
 {
-    internal class ScheduleHandler : DatabaseHandler
+    public class ScheduleHandler : DatabaseHandler
     {
 
         public void DisplaySchedule(DataGridView dgv)

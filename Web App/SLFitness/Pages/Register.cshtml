@@ -3,7 +3,7 @@
 @{
     
 }
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,14 @@
 
     <label asp-for="Registration.Email"><b>Email</b></label>
     <span asp-validation-for="Registration.Email" style="color: red"></span>
-    <input asp-for="Registration.Email" placeholder="Enter Email">
+    <input asp-for="Registration.Email" type="email" placeholder="Enter Email" style = "width: 260%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    color: black;
+    text-transform: none;">
 
     <label asp-for="Registration.Username"><b>Username</b></label>
     <span asp-validation-for="Registration.Username" style="color: red"></span>
@@ -37,29 +44,28 @@
 
     <label asp-for="Registration.FirstName"><b>First Name</b></label>
     <span asp-validation-for="Registration.FirstName" style="color: red"></span>
-    <input asp-for="Registration.FirstName" placeholder="Enter your first name">
+    <input asp-for="Registration.FirstName" type="text" placeholder="Enter your first name">
 
     <label asp-for="Registration.LastName"><b>Last Name</b></label>
     <span asp-validation-for="Registration.LastName" style="color: red"></span>
-    <input asp-for="Registration.LastName" placeholder="Enter your last name">
+    <input asp-for="Registration.LastName" type="text" placeholder="Enter your last name">
 
     <label asp-for="Registration.Password"><b>Password</b></label>
     <span asp-validation-for="Registration.Password" style="color: red"></span>
-    <input asp-for="Registration.Password" placeholder="Enter Password">
+    <input asp-for="Registration.Password" type="password" placeholder="Enter Password">
 
     <label asp-for="Registration.ConfirmPassword"><b>Repeat Password</b></label>
     <span asp-validation-for="Registration.ConfirmPassword" style="color: red"></span>
-    <input asp-for="Registration.ConfirmPassword" placeholder="Repeat Password">
+    <input asp-for="Registration.ConfirmPassword" type="password" placeholder="Repeat Password">
     
     
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
     <div class="clearfix">
       <button type="submit" class="signupbtn">Sign Up</button>
-      <button type="reset" class="cancelbtn">Cancel</button>
+      <button type="reset" class="cancelbtn" onclick="showHome()">Cancel</button>
     </div>
   </div>
 </form>
 
 </body>
-</html>

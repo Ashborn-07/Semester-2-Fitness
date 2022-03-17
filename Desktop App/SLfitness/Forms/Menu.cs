@@ -65,7 +65,9 @@ namespace SLfitness
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
+            Settings settings = new Settings(activeUserID);
+            settings.Show();
+            this.Hide();
         }
     }
 }

@@ -283,15 +283,15 @@ section {
         background: #111;
     }
 
-        .features .box-container .box.second {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: reverse;
-            -ms-flex-flow: column-reverse;
-            flex-flow: column-reverse;
-        }
+    .features .box-container .box.second {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse;
+        flex-flow: column-reverse;
+    }
 
         .features .box-container .box:hover .image img {
             -webkit-transform: scale(1.1);
@@ -815,3 +815,13 @@ section {
 }
 /*# sourceMappingURL=style.css.map */
 
+/* dynamically created div elements style for diets*/
+
+.featured-diets {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 1.5rem;
+    gap: 0;
+}
