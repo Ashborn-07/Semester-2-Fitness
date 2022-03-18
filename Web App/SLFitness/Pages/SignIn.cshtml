@@ -1,6 +1,7 @@
 ﻿@page
 @model SLFitness.Pages.Shared.LogInModel
 @{
+    ViewData["Title"] = "Sign In page";
 }
 <head>
     <meta charset="UTF-8">
@@ -14,7 +15,7 @@
 <!--    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" /> -->
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="~/css/Register.css">
+    <link rel="stylesheet" href="~/css/register.css">
 
 </head>
 <body>
@@ -32,7 +33,7 @@
     <label asp-for="UserSignIn.Password"><b>Password</b></label>
     <span asp-validation-for="UserSignIn.Password" style="color: red"></span>
     <input asp-for="UserSignIn.Password" placeholder="Enter Password" style="text-transform: none" type="password">
-    
+    <!--Create a pop up for incorrect password or username-->
     
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Priv+acy</a>.</p>
 
