@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUploadImage = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBox = new System.Windows.Forms.PictureBox();
             this.tbSaveChanges = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tblastName = new System.Windows.Forms.TextBox();
@@ -38,7 +38,7 @@
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.btnUploadImage);
-            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.picBox);
             this.panel1.Controls.Add(this.tbSaveChanges);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.tblastName);
@@ -72,13 +72,13 @@
             this.btnUploadImage.UseVisualStyleBackColor = false;
             this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
-            // pictureBox1
+            // picBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(261, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(198, 177);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.picBox.Location = new System.Drawing.Point(261, 17);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(198, 177);
+            this.picBox.TabIndex = 7;
+            this.picBox.TabStop = false;
             // 
             // tbSaveChanges
             // 
@@ -154,7 +154,7 @@
             this.Load += new System.EventHandler(this.Settings_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -168,7 +168,7 @@
         private TextBox tbFirstName;
         private TextBox tbUsername;
         private Button btnUploadImage;
-        private PictureBox pictureBox1;
+        private PictureBox picBox;
         private Button tbSaveChanges;
         private PictureBox pBoxLogo;
     }

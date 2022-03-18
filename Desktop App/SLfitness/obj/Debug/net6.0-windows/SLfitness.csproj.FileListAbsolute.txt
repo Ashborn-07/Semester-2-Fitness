@@ -19,6 +19,9 @@ C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfit
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.LogIn.resources
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.Menu.resources
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.NewDiet.resources
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.Schedule.resources
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.Settings.resources
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.UpdateDiet.resources
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.Properties.Resources.resources
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.csproj.GenerateResource.cache
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.GeneratedMSBuildEditorConfig.editorconfig
@@ -31,6 +34,3 @@ C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfit
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.pdb
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.genruntimeconfig.cache
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\ref\SLfitness.dll
-C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.Schedule.resources
-C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.Settings.resources
-C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\obj\Debug\net6.0-windows\SLfitness.UpdateDiet.resources

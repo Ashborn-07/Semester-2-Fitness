@@ -45,5 +45,31 @@ namespace SLfitness
 
             Disconnect();
         }
+
+        public void UpdateUserInfo(int id, string username, string email, string firstName, string lastName, byte[] image)
+        {
+            Connect();
+
+            string sql = "UPDATE indiv_user SET username=@Username, email=@Email, `first name`=@FirstName, `last name`=@LastName, `picture`=@Image WHERE id=@ID";
+
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@Username", username);
+            Cmd.Parameters.AddWithValue("@Email", email);
+            Cmd.Parameters.AddWithValue("@FirstName", firstName);
+            Cmd.Parameters.AddWithValue("@LastName", lastName);
+            Cmd.Parameters.AddWithValue("@Image", image);
+            Cmd.Parameters.AddWithValue("@ID", id);
+
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            } catch(MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            } finally
+            {
+                Disconnect();
+            }
+        }
     }
 }
