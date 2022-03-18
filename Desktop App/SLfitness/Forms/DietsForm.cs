@@ -13,7 +13,7 @@ namespace SLfitness
     public partial class DietsForm : Form
     {
         private int activeUserID;
-        private DietsHandler dietsHandler;
+        private DietsHandler dietsHandler = new DietsHandler();
 
         public DietsForm(int activeUserID)
         {
@@ -40,6 +40,8 @@ namespace SLfitness
             dietsHandler.DisplayDiets(dataGridv);
         }
 
+
+        //TODO to be displayed the extra information when clicked on row probably
         private void dataGridv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string p = dataGridv.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -53,12 +55,13 @@ namespace SLfitness
             else if (e.ColumnIndex == 1 && e.RowIndex != -1)
             {
                 //TODO with the UpdateDiet Form
+                UpdateDiet updateDiet = new UpdateDiet(id, dietsHandler.GetTypeOfDiet(id), activeUserID);
+                updateDiet.Show();
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dietsHandler = new DietsHandler();
 
             if (cbFilter.SelectedItem.ToString().Equals("Zero Carbs"))
             {
@@ -67,10 +70,16 @@ namespace SLfitness
             else if (cbFilter.SelectedItem.ToString().Equals("Healthy"))
             {
                 dietsHandler.DisplayHealthyDiets(dataGridv);
-            } else
+            }
+            else
             {
                 dietsHandler.DisplayDiets(dataGridv);
             }
+        }
+
+        private void btnRefresh_Click_1(object sender, EventArgs e)
+        {
+            dietsHandler.DisplayDiets(dataGridv);
         }
     }
 }

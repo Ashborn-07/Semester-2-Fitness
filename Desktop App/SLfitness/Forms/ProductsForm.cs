@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace SLfitness
 {
-    public partial class EquipmentsForm : Form
+    public partial class ProductsForm : Form
     {
         private int activeUserID;
 
-        public EquipmentsForm(int activeUserID)
+        public ProductsForm(int activeUserID)
         {
             InitializeComponent();
 
@@ -25,6 +25,12 @@ namespace SLfitness
         {
             Menu menu = new Menu(activeUserID);
             menu.Show();
+        }
+
+        private void ProductsForm_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry but the products page is under development");
+            this.Close();
         }
     }
 }

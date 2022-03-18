@@ -1,6 +1,6 @@
 ﻿namespace SLfitness
 {
-    partial class EquipmentsForm
+    partial class ProductsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,17 @@
         {
             this.SuspendLayout();
             // 
-            // EquipmentsForm
+            // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(700, 338);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "EquipmentsForm";
-            this.Text = "EquipmentsForm";
+            this.Name = "ProductsForm";
+            this.Text = "ProductsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EquipmentsForm_FormClosed);
+            this.Load += new System.EventHandler(this.ProductsForm_Load);
             this.ResumeLayout(false);
 
         }

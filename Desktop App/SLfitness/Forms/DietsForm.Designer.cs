@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridv = new System.Windows.Forms.DataGridView();
+            this.image = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dietBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dietBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbFilter = new System.Windows.Forms.ComboBox();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnAddDiet = new System.Windows.Forms.Button();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dietBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.image = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource1)).BeginInit();
@@ -68,19 +68,27 @@
             this.dataGridv.TabIndex = 0;
             this.dataGridv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridv_CellContentClick);
             // 
-            // dietBindingSource2
+            // image
             // 
-            this.dietBindingSource2.DataSource = typeof(SLfitness.Diet);
+            this.image.HeaderText = "image";
+            this.image.Name = "image";
+            this.image.ReadOnly = true;
+            this.image.Text = "image";
+            this.image.UseColumnTextForButtonValue = true;
             // 
-            // dietBindingSource1
+            // Update
             // 
-            this.dietBindingSource1.DataSource = typeof(SLfitness.Diet);
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.ReadOnly = true;
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.cbFilter);
             this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Controls.Add(this.cbFilter);
             this.panel1.Controls.Add(this.btnAddDiet);
             this.panel1.Controls.Add(this.dataGridv);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -102,20 +110,6 @@
             this.cbFilter.TabIndex = 3;
             this.cbFilter.Text = "Filter";
             this.cbFilter.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.Black;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRefresh.Location = new System.Drawing.Point(183, 253);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(165, 43);
-            this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "REFRESH";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAddDiet
             // 
@@ -155,25 +149,19 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "DIETS";
             // 
-            // dietBindingSource
+            // btnRefresh
             // 
-            this.dietBindingSource.DataSource = typeof(SLfitness.Diet);
-            // 
-            // image
-            // 
-            this.image.HeaderText = "image";
-            this.image.Name = "image";
-            this.image.ReadOnly = true;
-            this.image.Text = "image";
-            this.image.UseColumnTextForButtonValue = true;
-            // 
-            // Update
-            // 
-            this.Update.HeaderText = "Update";
-            this.Update.Name = "Update";
-            this.Update.ReadOnly = true;
-            this.Update.Text = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
+            this.btnRefresh.BackColor = System.Drawing.Color.Black;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRefresh.Location = new System.Drawing.Point(193, 253);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(176, 43);
+            this.btnRefresh.TabIndex = 22;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click_1);
             // 
             // DietsForm
             // 
@@ -206,12 +194,12 @@
         private PictureBox pBoxLogo;
         private Label label1;
         private Button btnAddDiet;
-        private Button btnRefresh;
         private BindingSource dietBindingSource;
         private BindingSource dietBindingSource1;
         private BindingSource dietBindingSource2;
         private ComboBox cbFilter;
         private DataGridViewButtonColumn image;
         private DataGridViewButtonColumn Update;
+        private Button btnRefresh;
     }
 }

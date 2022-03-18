@@ -51,7 +51,7 @@ namespace SLfitness
 
         private void btnEquipment_Click(object sender, EventArgs e)
         {
-            EquipmentsForm equipmentsForm = new EquipmentsForm(activeUserID);
+            ProductsForm equipmentsForm = new ProductsForm(activeUserID);
             equipmentsForm.Show();
             this.Hide();
         }

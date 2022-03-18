@@ -33,7 +33,6 @@ C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\SLFitness.TagHelpers.output.cache
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\SLFitness.RazorCoreGenerate.cache
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\Razor\Pages\Diets.cshtml.g.cs
-C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\Razor\Pages\Register.cshtml.g.cs
 C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Web App\SLFitness\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
