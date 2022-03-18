@@ -34,6 +34,10 @@ namespace SLfitness
                         menu.Show();
                         this.Close();
                         return;
+                    } else
+                    {
+                        MessageBox.Show("This application is only for coaches");
+                        return;
                     }
                 }
             }
