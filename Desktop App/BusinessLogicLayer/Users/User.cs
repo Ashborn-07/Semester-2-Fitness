@@ -9,7 +9,7 @@ namespace BusinessLogicLayer
 {
     public class User
     {
-        private int id;
+        private readonly int id;
         private string username;
         private string email;
         private string firstName;
@@ -43,6 +43,7 @@ namespace BusinessLogicLayer
             this.firstName = firstName;
             this.lastName = lastName;
             this.email = email;
+            this.image = image;
         }
     }
 }
