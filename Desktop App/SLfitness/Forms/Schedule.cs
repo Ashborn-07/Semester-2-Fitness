@@ -7,18 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace SLfitness
 {
     public partial class Schedule : Form
     {
-        ScheduleHandler scheduleHandler;
-        private int activeUserID;
+        private ScheduleService service;
+        private Menu menu;
+        private User user;
 
-        public Schedule(int activeUserID)
+        public Schedule(User user, Menu menu)
         {
             InitializeComponent();
-            this.activeUserID = activeUserID;
+            this.user = user;
+            this.menu = menu;
+            IScheduleRepository repository = new ScheduleRepository();
+            service = new ScheduleService(repository);
         }
 
         private void btnAddAppointment_Click(object sender, EventArgs e)
@@ -30,25 +36,21 @@ namespace SLfitness
         {
             cbFilter.Text = "";
             dateTimePick.Value = DateTime.Now;
-
-            scheduleHandler = new ScheduleHandler();
-            scheduleHandler.DisplaySchedule(DataGridView);
+            DataGridView.DataSource = service.DisplaySchedules();
         }
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            scheduleHandler = new ScheduleHandler();
-            scheduleHandler.DisplayByFilters(cbFilter.SelectedItem.ToString(), DataGridView);
+            DataGridView.DataSource = service.DisplaySchedulesByFilter(cbFilter.SelectedItem.ToString());
         }
 
         private void Schedule_Load(object sender, EventArgs e)
         {
-            scheduleHandler = new ScheduleHandler();
-            scheduleHandler.DisplaySchedule(DataGridView);
+            DataGridView.DataSource = service.DisplaySchedules();
 
             cbFilter.Items.Clear();
 
-            foreach (var item in scheduleHandler.GetLocations())
+            foreach (var item in service.GetLocationsFilter())
             {
                 cbFilter.Items.Add(item);
             }
@@ -58,11 +60,10 @@ namespace SLfitness
         {
             //probably change to calendar for date and combo box for time
             //add filter option with hour and different coaches/users(maybe)
-            scheduleHandler = new ScheduleHandler();
             DateTime dateTime = dateTimePick.Value;
             string date = dateTime.ToString("yyyy-MM--dd");
 
-            scheduleHandler.FilterByDate(date, DataGridView);
+            DataGridView.DataSource = service.DisplaySchedulesByDate(date);
         }
 
         private void Schedule_FormClosing(object sender, FormClosingEventArgs e)
@@ -70,8 +71,7 @@ namespace SLfitness
             DialogResult dialogResult = MessageBox.Show("Do you really want to leave this page?", "", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
-            {
-                Menu menu = new Menu(activeUserID);
+            { 
                 menu.Show();
             }
             else if (dialogResult == DialogResult.No)

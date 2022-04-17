@@ -1,8 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using SLFitness.Models;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace SLFitness
 {
@@ -34,7 +35,10 @@ namespace SLFitness
             }
             finally
             {
-                Disconnect();
+                if (Con.State == System.Data.ConnectionState.Open)
+                {
+                    Disconnect();
+                }
             }
 
             if (i != -1)
@@ -45,35 +49,41 @@ namespace SLFitness
             return false;
         }
 
-        public int CheckUserCreadentialsAndReturnID(string username, string password)
+        public User CreadentailsCheck(string username, string password)
         {
+            User user = null;
             Connect();
 
-            int id = -1;
-
-            string sql = "SELECT `id` FROM indiv_user WHERE username=@username AND password=@password";
+            string sql = "SELECT * FROM indiv_user WHERE username=@username AND password=@password";
 
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@username", username);
             Cmd.Parameters.AddWithValue("@password", password);
 
-            try
-            {
-                Reader = Cmd.ExecuteReader();
-            }
-            catch (MySqlException)
-            {
-                throw new System.Exception();
-            }
+            Reader = Cmd.ExecuteReader();
 
             if (Reader.Read())
             {
-                id = Reader.GetInt32(0);
+                int id = Reader.GetInt32(0);
+                string userName = Reader.GetString(1);
+                string passWord = Reader.GetString(2);
+                string email = Reader.GetString(3);
+                string firstName = Reader.GetString(4);
+                string lastName = Reader.GetString(5);
+                string userType = Reader.GetString(6);
+                if (Reader["picture"] != null)
+                {
+                    user = new User(id, userName, passWord, email, firstName, lastName, userType, ((byte[])Reader["picture"]));
+                    Disconnect();
+                    return user;
+                }
+
+                user = new User(id, userName, passWord, email, firstName, lastName, userType); 
             }
 
             Disconnect();
 
-            return id;
+            return user;
         }
 
         public List<Diet> GetList()
@@ -84,16 +94,18 @@ namespace SLFitness
             string sql = "SELECT * FROM indiv_diets";
 
             Cmd = new MySqlCommand(sql, Con);
-            
+
             try
             {
                 Reader = Cmd.ExecuteReader();
-            } catch (MySqlException)
+            }
+            catch (MySqlException)
             {
 
-            } finally
+            }
+            finally
             {
-                while(Reader.Read())
+                while (Reader.Read())
                 {
                     int id = Reader.GetInt32(0);
                     string name = Reader.GetString(1);
@@ -105,7 +117,10 @@ namespace SLFitness
                 }
             }
 
-            Disconnect();
+            if (Con.State == System.Data.ConnectionState.Open)
+            {
+                Disconnect();
+            }
 
             return diets;
         }

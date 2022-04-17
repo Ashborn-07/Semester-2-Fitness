@@ -19,7 +19,10 @@ namespace SLFitness.Pages
 
         public void OnGet(int? id)
         {
+            if (User.Claims != null)
+            {
 
+            }
         }
     }
 }

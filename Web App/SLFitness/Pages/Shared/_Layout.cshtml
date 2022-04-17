@@ -4,27 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SLFitness</title>
-   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="~/css/site.css">
+
 </head>
 <body>
-   <header class="header">
+    <header class="header">
 
-    <a href="#" class="logo"> <span>SL</span>FIT </a>
+        <a href="#" class="logo"> <span>SL</span>FIT </a>
 
-    <div id="menu-btn" class="fas fa-bars"></div>
+        <div id="menu-btn" class="fas fa-bars"></div>
 
-    <nav class="navbar">
-        <a asp-page="/Index">home</a>
-        <a asp-page="/Index" >about</a>
-        <a asp-page="">membership</a> <!-- TODOc redirection content page -->
-        <a asp-page="">products</a> <!-- TODO redirection page do display products from database-->
-        <a asp-page="">trainers</a> <!-- TODO redirection page trainers to dsiplay trainers and schedule appointments prob-->
-        <a asp-page="/Diets">diets</a> 
-        <a asp-page="/SignIn">Sign in</a>
-        <a asp-page="/Register">Sign Up</a>
-    </nav>
+        <nav class="navbar">
+            <a asp-page="/Index">home</a>
+            <a asp-page="/Index">about</a>
+            <a asp-page="">membership</a> <!-- TODOc redirection content page -->
+            <a asp-page="">products</a> <!-- TODO redirection page do display products from database-->
+            <a asp-page="">trainers</a> <!-- TODO redirection page trainers to dsiplay trainers and schedule appointments prob-->
+            @if (User.IsInRole("COACH"))
+            {
+                <a asp-page="#">view users</a>
+            }
+            <a asp-page="/Diets">diets</a>
+            @if (User.Claims == null)
+            {
+                <a asp-page="/SignIn">sign in</a>
+                <a asp-page="/Register">sign Up</a>
+            }
+            @if(User.Claims != null)
+            {
+                <a asp-page="/SignIn">log out</a>
+            }
 
-</header>
+        </nav>
+
+    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -38,6 +57,7 @@
     </footer>
 
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)

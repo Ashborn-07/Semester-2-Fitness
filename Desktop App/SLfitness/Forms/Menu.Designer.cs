@@ -136,7 +136,7 @@
             this.btnEquipment.Name = "btnEquipment";
             this.btnEquipment.Size = new System.Drawing.Size(175, 45);
             this.btnEquipment.TabIndex = 1;
-            this.btnEquipment.Text = "Equipment page";
+            this.btnEquipment.Text = "Products page";
             this.btnEquipment.UseVisualStyleBackColor = false;
             this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
             // 
@@ -158,7 +158,7 @@
             // pBoxLogo
             // 
             this.pBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pBoxLogo.Image = global::SLfitness.Properties.Resources.fit_logo;
+            this.pBoxLogo.Image = global::SLfitnessDesktop.Properties.Resources.fit_logo;
             this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pBoxLogo.Name = "pBoxLogo";

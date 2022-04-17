@@ -10,7 +10,7 @@ namespace SLFitness.Pages
         public string PageTitle { get; private set; }
 
         [BindProperty]
-        public UserRegistration Registration { get; set; }
+        public Register Registration { get; set; }
 
         UserLogic logic;
 

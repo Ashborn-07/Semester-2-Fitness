@@ -7,22 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace SLfitness
 {
     public partial class NewDiet : Form
     {
         private byte[] picture;
-        private int activeUserID;
-        private DietsHandler dietHandler;
+        private User user;
+        private DietService service;
 
         private string name;
         private string description;
 
-        public NewDiet(int activeUserID)
+        public NewDiet(User user)
         {
             InitializeComponent();
-            this.activeUserID = activeUserID;
+            this.user = user;
+            IDietsRepository repository = new DietsRepository();
+            service = new DietService(repository);
         }
 
         private void btnPictureBrowse_Click(object sender, EventArgs e)
@@ -46,34 +50,42 @@ namespace SLfitness
 
         private void btnAddDiet_Click(object sender, EventArgs e)
         {
+            Diet diet = null;
+
             if (String.IsNullOrEmpty(tbName.Text) || String.IsNullOrEmpty(tbDescription.Text))
             {
-                MessageBox.Show("All fields must be filled");
+                MessageBox.Show("All fields must be filled.");
                 return;
             }
 
             if (picBoxDiet.Image == null)
             {
-                MessageBox.Show("Please choose a picture from your device");
+                MessageBox.Show("Please choose a picture from your device.");
                 return;
             }
 
-            dietHandler = new DietsHandler();
-
             if (cbType.SelectedIndex == -1)
             {
-                MessageBox.Show("Choose Type!");
+                MessageBox.Show("You must select a type.");
                 return;
             }
             else if (cbType.SelectedItem.ToString().Equals("Zero Carbs"))
             {
-                ZeroCarbsDiet diet = dietHandler.GetCarbsDiet(tbName.Text, tbDescription.Text, activeUserID, picture, (int)numCalories.Value, (int)numFat.Value);
-                dietHandler.AddDiet(diet);
+                ZeroCarbsDiet dietZeroCarbs = new ZeroCarbsDiet(tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, picture);
+                diet = dietZeroCarbs;
             }
             else if (cbType.SelectedItem.ToString().Equals("Healthy"))
             {
-                HealthyDiet diet = dietHandler.GetHealthy(tbName.Text, tbDescription.Text, activeUserID, picture, (int)numCalories.Value, (int)numFat.Value, (int)numCarbs.Value);
-                dietHandler.AddDiet(diet);
+                HealthyDiet dietHealthy = new HealthyDiet(tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, picture, (int)numCarbs.Value);
+                diet = dietHealthy;
+            }
+
+            try
+            {
+                service.AddDiet(diet);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             DialogResult dr = MessageBox.Show("Do you want to add a new diet?", "", MessageBoxButtons.YesNo);

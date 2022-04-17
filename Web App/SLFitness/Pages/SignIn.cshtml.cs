@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SLFitness.Models;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace SLFitness.Pages.Shared
 {
@@ -9,7 +13,7 @@ namespace SLFitness.Pages.Shared
         public string PageTitle { get; private set; }
 
         [BindProperty]
-        public UserSignIn UserSignIn { get; set; }
+        public SignIn signIn { get; set; }
 
         DataAccess data;
 
@@ -20,19 +24,25 @@ namespace SLFitness.Pages.Shared
 
         public void OnGet()
         {
+            
         }
 
         public IActionResult OnPost()
         {
             if (ModelState.IsValid)
             {
-                data = new DataAccess();
-                int i = data.CheckUserCreadentialsAndReturnID(UserSignIn.Username, UserSignIn.Password);
-                if (i != -1)
+               User user = signIn.AttemptSignIn();
+                if (user != null)
                 {
-                    return RedirectToPage("Index", new { id =  i});
+                    List<Claim> claims = new List<Claim>();
+                    claims.Add(new Claim("id", user.Id.ToString()));
+                    claims.Add(new Claim(ClaimTypes.Name, user.UserName));
+                    claims.Add(new Claim(ClaimTypes.Role, user.UserType));
+
+                    var ClaimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    HttpContext.SignInAsync(new ClaimsPrincipal(ClaimsIdentity));
+                    Redirect("Index");
                 }
-                //Display wrong credentials
             }
 
             return Page();

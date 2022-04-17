@@ -17,7 +17,7 @@ namespace SLFitness
         public void Connect()
         {
             con = new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi482834;Database=dbi482834;Pwd=Syrux79;Allow User Variables=True;");
-            con.Open();
+            con.Open(); //there should be a custom exception and a validation if the connection throws an exception to show an alert/message in the site and not crashing the site  
         }
 
         public void Disconnect()

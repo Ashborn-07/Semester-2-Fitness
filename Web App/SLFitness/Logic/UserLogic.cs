@@ -2,12 +2,12 @@
 {
     public class UserLogic
     {
-        DataAccess data;
+        private DataAccess data = new DataAccess();
 
         public bool CheckUserInputRegistration(string username, string password, string email, string firstName, string lastName)
         {
-            data = new DataAccess();
-            if(data.CheckUserCreadentialsAndReturnID(username, password) != -1)
+            
+            if(data.CreadentailsCheck(username, password) != null)
             {
                 return false;
             }

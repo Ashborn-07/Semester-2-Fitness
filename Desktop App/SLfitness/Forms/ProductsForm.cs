@@ -7,23 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace SLfitness
 {
     public partial class ProductsForm : Form
     {
-        private int activeUserID;
+        private User user;
+        private Menu menu;
 
-        public ProductsForm(int activeUserID)
+        public ProductsForm(User user, Menu menu)
         {
             InitializeComponent();
-
-            this.activeUserID = activeUserID;
+            this.user = user;
+            this.menu = menu;
         }
 
         private void EquipmentsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Menu menu = new Menu(activeUserID);
             menu.Show();
         }
 
@@ -31,6 +33,26 @@ namespace SLfitness
         {
             MessageBox.Show("Sorry but the products page is under development");
             this.Close();
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCreateProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

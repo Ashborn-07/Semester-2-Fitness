@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUploadImage = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
-            this.tbSaveChanges = new System.Windows.Forms.Button();
+            this.btnSaveChanges = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tblastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
@@ -47,7 +47,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.btnUploadImage);
             this.panel1.Controls.Add(this.picBox);
-            this.panel1.Controls.Add(this.tbSaveChanges);
+            this.panel1.Controls.Add(this.btnSaveChanges);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.tblastName);
             this.panel1.Controls.Add(this.tbFirstName);
@@ -80,19 +80,19 @@
             this.picBox.TabIndex = 7;
             this.picBox.TabStop = false;
             // 
-            // tbSaveChanges
+            // btnSaveChanges
             // 
-            this.tbSaveChanges.BackColor = System.Drawing.Color.Black;
-            this.tbSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.tbSaveChanges.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.tbSaveChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tbSaveChanges.Location = new System.Drawing.Point(12, 173);
-            this.tbSaveChanges.Name = "tbSaveChanges";
-            this.tbSaveChanges.Size = new System.Drawing.Size(200, 43);
-            this.tbSaveChanges.TabIndex = 6;
-            this.tbSaveChanges.Text = "SAVE";
-            this.tbSaveChanges.UseVisualStyleBackColor = false;
-            this.tbSaveChanges.Click += new System.EventHandler(this.tbSaveChanges_Click);
+            this.btnSaveChanges.BackColor = System.Drawing.Color.Black;
+            this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSaveChanges.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveChanges.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveChanges.Location = new System.Drawing.Point(12, 173);
+            this.btnSaveChanges.Name = "btnSaveChanges";
+            this.btnSaveChanges.Size = new System.Drawing.Size(200, 43);
+            this.btnSaveChanges.TabIndex = 6;
+            this.btnSaveChanges.Text = "SAVE";
+            this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
             // 
             // tbEmail
             // 
@@ -129,7 +129,7 @@
             // pBoxLogo
             // 
             this.pBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pBoxLogo.Image = global::SLfitness.Properties.Resources.fit_logo;
+            this.pBoxLogo.Image = global::SLfitnessDesktop.Properties.Resources.fit_logo;
             this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pBoxLogo.Name = "pBoxLogo";
@@ -169,7 +169,7 @@
         private TextBox tbUsername;
         private Button btnUploadImage;
         private PictureBox picBox;
-        private Button tbSaveChanges;
+        private Button btnSaveChanges;
         private PictureBox pBoxLogo;
     }
 }
