@@ -6,7 +6,7 @@
 <div class="login-container">
     <div class="forms">
         <div class="form login">
-            <span class="title">LogIn</span>
+            <span class="title">Register</span>
 
             <form method="post" class="login-actual-form">
                 <div class="input-field">
@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="input-field">
-                    <input type="text" placeholder="Enter your Email" asp-for="registerModel.Email" />
+                    <input type="email" placeholder="Enter your Email" asp-for="registerModel.Email" />
                     <i class="uil uil-envelope"></i>
                     <span asp-validation-for="registerModel.Email" class="span-validation"></span>
                 </div>

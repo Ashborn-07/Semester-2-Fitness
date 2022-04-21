@@ -176,6 +176,11 @@
             131072});
             this.numPrice.Location = new System.Drawing.Point(12, 135);
             this.numPrice.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.numPrice.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(148, 23);
             this.numPrice.TabIndex = 39;

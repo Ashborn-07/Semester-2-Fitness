@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BusinessLogicLayer;
 using DataAccessLayer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SLfitnessWeb.Pages
 {
+    [Authorize]
     public class ProductPageModel : PageModel
     {
         public List<Product> products;

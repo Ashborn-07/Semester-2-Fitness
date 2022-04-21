@@ -15,5 +15,9 @@ namespace BusinessLogicLayer
         public List<User> GetAllUsersInList();
 
         public User ReturnUserByUsername(string usernameInput);
+
+        public User GetUserById(int id);
+
+        public void UpdateUserWeb(User user, int id);
     }
 }

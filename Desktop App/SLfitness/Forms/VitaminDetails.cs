@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BusinessLogicLayer;
 using DataAccessLayer;
+using System.Drawing.Imaging;
 
 namespace SLfitnessDesktop
 {
@@ -41,38 +42,71 @@ namespace SLfitnessDesktop
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Goal goal = new Goal();
-
-            switch (cbGoal.Text)
+            if (ValidationInput())
             {
-                case "BUILD MUSCLE":
-                    goal = Goal.BUILD_MUSCLE;
-                    break;
-                case "ENDURANCE":
-                    goal = Goal.ENDURANCE;
-                    break;
-                case "LOSE WEIGHT":
-                    goal = Goal.LOSE_WEIGHT;
-                    break;
-                case "STAY HEALTHY":
-                    goal = Goal.STAY_HEALTHY;
-                    break;
-                default:
-                    break;
+                Goal goal = new Goal();
+
+                switch (cbGoal.Text)
+                {
+                    case "BUILD MUSCLE":
+                        goal = Goal.BUILD_MUSCLE;
+                        break;
+                    case "ENDURANCE":
+                        goal = Goal.ENDURANCE;
+                        break;
+                    case "LOSE WEIGHT":
+                        goal = Goal.LOSE_WEIGHT;
+                        break;
+                    case "STAY HEALTHY":
+                        goal = Goal.STAY_HEALTHY;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (lblProductId.Text != ".")
+                {
+                    Vitamins vitamins = new Vitamins(Convert.ToInt32(lblProductId.Text), tbName.Text, cbBrand.Text, tbDescription.Text, ProductType.TABLETS, numPrice.Value, ImageToBytesConverter(picBox.Image), (VitaminFlavour)Enum.Parse(typeof(VitaminFlavour), cbVitaminFlavour.Text), goal);
+
+                    try
+                    {
+                        service.UpdateProduct(vitamins);
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                    MessageBox.Show("Vitamins successfully updated");
+                }
+                else
+                {
+                    Vitamins vitamins = new Vitamins(tbName.Text, cbBrand.Text, tbDescription.Text, ProductType.TABLETS, numPrice.Value, ImageToBytesConverter(picBox.Image), (VitaminFlavour)Enum.Parse(typeof(VitaminFlavour), cbVitaminFlavour.Text), goal);
+
+                    try
+                    {
+                        service.AddProduct(vitamins);
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch (Exception es)
+                    {
+                        MessageBox.Show(es.Message);
+                    }
+
+                    NotificationAdded();
+                }
+
+                return;
             }
 
-            Vitamins vitamins = new Vitamins(tbName.Text, cbBrand.Text, tbDescription.Text, ProductType.TABLETS, numPrice.Value, ImageToBytesConverter(picBox.Image), (VitaminFlavour)Enum.Parse(typeof(VitaminFlavour), cbVitaminFlavour.Text), goal);
-
-            try
-            {
-                service.AddProduct(vitamins);
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            Notification();
+            MessageBox.Show("Please be sure to fill all fields and choose an image");
         }
 
         private void btnBrowseImage_Click(object sender, EventArgs e)
@@ -84,16 +118,8 @@ namespace SLfitnessDesktop
 
             if (!String.IsNullOrEmpty(openFileDialog.FileName))
             {
-                Image image = null;
-                using (Bitmap bitmap = (Bitmap)Image.FromFile(openFileDialog.FileName))
-                {
-                    using (Bitmap newBitmap = new Bitmap(bitmap))
-                    {
-                        newBitmap.SetResolution(300, 300);
-                        image = newBitmap.Save("file300.jpg", ImageFormat.Jpeg);
-                    }
-                }
-
+                Image image = Image.FromFile(openFileDialog.FileName);
+                image = ResizeImage(image);
                 picBox.Image = image;
                 picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
@@ -133,7 +159,7 @@ namespace SLfitnessDesktop
             }
         }
 
-        private void Notification()
+        private void NotificationAdded()
         {
             DialogResult ds = MessageBox.Show("Product added successfully, do you want to add another clothing.", "", MessageBoxButtons.YesNo);
 
@@ -155,11 +181,16 @@ namespace SLfitnessDesktop
         private void PopulateProductFields()
         {
             picBox.Image = ByteToImageConverter(vitamins.Image);
+            picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             tbName.Text = vitamins.Name;
             tbDescription.Text = vitamins.Description;
             numPrice.Value = vitamins.Price;
             cbBrand.Text = vitamins.Brand;
             cbVitaminFlavour.Text = vitamins.Flavour.ToString();
+            if (vitamins.ID != null)
+            {
+                lblProductId.Text = vitamins.ID.ToString();
+            }
 
             switch (vitamins.Goal.ToString())
             {
@@ -178,6 +209,27 @@ namespace SLfitnessDesktop
                 default:
                     break;
             }
+        }
+
+        private Image ResizeImage(Image imgToResize)
+        {
+            Image resizedImage = imgToResize;
+            Bitmap bitmap = new Bitmap(resizedImage);
+            return (Image)(new Bitmap(imgToResize, new Size(300, 300)));
+        }
+
+        private bool ValidationInput()
+        {
+            if (!String.IsNullOrEmpty(tbName.Text) && !String.IsNullOrEmpty(tbDescription.Text) 
+                && cbGoal.SelectedIndex != -1 && cbVitaminFlavour.SelectedIndex != -1 && picBox.Image != null)
+            {
+                if (cbBrand.SelectedIndex != -1 || cbBrand.Text != "brand")
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

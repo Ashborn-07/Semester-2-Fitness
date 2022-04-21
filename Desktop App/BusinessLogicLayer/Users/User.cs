@@ -70,5 +70,12 @@ namespace BusinessLogicLayer
             this.image = image;
             this.password = password;
         }
+
+        public User(string firstName, string lastName, string email)
+        {
+            this.email = email;
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
     }
 }

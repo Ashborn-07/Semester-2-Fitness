@@ -21,40 +21,45 @@ namespace DataAccessLayer
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@Username", usernameInput);
 
-            Reader = Cmd.ExecuteReader();
-
-            while (Reader.Read())
+            try
             {
-                int id = Reader.GetInt32(0);
-                string username = Reader.GetString(1);
-                string password = Reader.GetString(2);
-                string email = Reader.GetString(3);
-                string firstName = Reader.GetString(4);
-                string lastName = Reader.GetString(5);
-                string type = Reader.GetString(6);
-                byte[] vs;
-                if (DBNull.Value.Equals(Reader["picture"]))
-                {
-                    vs = null;
-                }
-                else
-                {
-                    vs = (byte[])(Reader["picture"]);
-                }
+                Reader = Cmd.ExecuteReader();
 
-                switch (type)
+                while (Reader.Read())
                 {
-                    case "COACH":
-                        user = new User(id, username, email, firstName, lastName, UserType.COACH, vs, password);
-                        break;
-                    case "USER":
-                        user = new User(id, username, email, firstName, lastName, UserType.USER, vs, password);
-                        break;
-                }
+                    int id = Reader.GetInt32(0);
+                    string username = Reader.GetString(1);
+                    string password = Reader.GetString(2);
+                    string email = Reader.GetString(3);
+                    string firstName = Reader.GetString(4);
+                    string lastName = Reader.GetString(5);
+                    string type = Reader.GetString(6);
+                    byte[] vs;
+                    if (DBNull.Value.Equals(Reader["picture"]))
+                    {
+                        vs = null;
+                    }
+                    else
+                    {
+                        vs = (byte[])(Reader["picture"]);
+                    }
 
+                    switch (type)
+                    {
+                        case "COACH":
+                            user = new User(id, username, email, firstName, lastName, UserType.COACH, vs, password);
+                            break;
+                        case "USER":
+                            user = new User(id, username, email, firstName, lastName, UserType.USER, vs, password);
+                            break;
+                    }
+
+                }
+            } finally
+            {
+                Disconnect();
             }
 
-            Disconnect();
             return user;
         }
 
@@ -72,8 +77,13 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@Image", image);
             Cmd.Parameters.AddWithValue("@ID", id);
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            } finally
+            {
+                Disconnect();
+            }
         }
 
         public void RegisterUser(User user)
@@ -90,9 +100,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@lastName", user.LastName);
             Cmd.Parameters.AddWithValue("@userType", user.Type.ToString());
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
-        }
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            } finally
+            {
+                Disconnect();
+            }
+        } 
 
         public List<User> GetAllUsersInList()
         {
@@ -103,31 +118,88 @@ namespace DataAccessLayer
 
             Cmd = new MySqlCommand(sql, Con);
 
-            Reader = Cmd.ExecuteReader();
-
-            while (Reader.Read())
+            try
             {
-                int id = Reader.GetInt32(0);
-                string username = Reader.GetString(1);
-                string email = Reader.GetString(2);
-                string firstName = Reader.GetString(3);
-                string lastName = Reader.GetString(4);
-                string type = Reader.GetString(5);
-                byte[] vs;
-                if (DBNull.Value.Equals(Reader["picture"]))
-                {
-                    vs = null;
-                } else
-                {
-                    vs = (byte[])(Reader["picture"]);
-                }
+                Reader = Cmd.ExecuteReader();
 
-                users.Add(new User(id, username, email, firstName, lastName, (UserType)Enum.Parse(typeof(UserType), type), vs));
+                while (Reader.Read())
+                {
+                    int id = Reader.GetInt32(0);
+                    string username = Reader.GetString(1);
+                    string email = Reader.GetString(2);
+                    string firstName = Reader.GetString(3);
+                    string lastName = Reader.GetString(4);
+                    string type = Reader.GetString(5);
+                    byte[] vs;
+                    if (DBNull.Value.Equals(Reader["picture"]))
+                    {
+                        vs = null;
+                    }
+                    else
+                    {
+                        vs = (byte[])(Reader["picture"]);
+                    }
+
+                    users.Add(new User(id, username, email, firstName, lastName, (UserType)Enum.Parse(typeof(UserType), type), vs));
+                }
+            } finally
+            {
+                Disconnect();
             }
 
-            Disconnect();
-
             return users;
+        }
+
+        public User GetUserById(int id)
+        {
+            User user = null;
+            Connect();
+
+            string sql = "SELECT * FROM indiv_user WHERE id = @id";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@id", id);
+
+            try
+            {
+                Reader = Cmd.ExecuteReader();
+
+                if (Reader.Read())
+                {
+                    string firstName = Reader["first name"].ToString();
+                    string lastName = Reader["last name"].ToString();
+                    string email = Reader["email"].ToString();
+
+                    user = new User(firstName, lastName, email);
+                }
+
+            }
+            finally
+            {
+                Disconnect();
+            }
+
+            return user;
+        }
+
+        public void UpdateUserWeb(User user, int id)
+        {
+            Connect();
+
+            string sql = "UPDATE indiv_user SET `email` = @email, `first name` = @firstName, `last name` = @lastName WHERE `id` = @id";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@email", user.Email);
+            Cmd.Parameters.AddWithValue("@firstName", user.FirstName);
+            Cmd.Parameters.AddWithValue("@lastName", user.LastName);
+            Cmd.Parameters.AddWithValue("@id", id);
+
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
     }
 }

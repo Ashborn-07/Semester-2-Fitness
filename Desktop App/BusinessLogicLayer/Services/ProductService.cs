@@ -50,5 +50,21 @@ namespace BusinessLogicLayer
         {
             return repository.GetListOfProducts();
         }
+
+        public void UpdateProduct(Product product)
+        {
+            switch (product)
+            {
+                case Clothing:
+                    repository.UpdateClothing((Clothing)product);
+                    break;
+                case Protein:
+                    repository.UpdateProtein((Protein)product);
+                    break;
+                case Vitamins:
+                    repository.UpdateVitamins((Vitamins)product);
+                    break;
+            }
+        }
     }
 }

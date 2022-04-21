@@ -363,5 +363,69 @@ namespace DataAccessLayer
 
             return products;
         }
+
+        public void UpdateProtein(Protein protein)
+        {
+            Connect();
+
+            string sql = "UPDATE indiv_products AS p INNER JOIN indiv_protein AS pro ON p.id = pro.id SET p.`name` = @name, p.`brand` = @brand, p.`description` = @description, p.`price` = @price, p.`type` = @type, p.`image` = @image, pro.`flavour` = @flavour, pro.`occurance` = @occurance, pro.`goal` = @goal WHERE p.`id` = @id";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@name", protein.Name);
+            Cmd.Parameters.AddWithValue("@id", protein.ID);
+            Cmd.Parameters.AddWithValue("@brand", protein.Brand);
+            Cmd.Parameters.AddWithValue("@description", protein.Description);
+            Cmd.Parameters.AddWithValue("@price", protein.Price);
+            Cmd.Parameters.AddWithValue("@type", protein.Type.ToString());
+            Cmd.Parameters.AddWithValue("@image", protein.Image);
+            Cmd.Parameters.AddWithValue("@flavour", protein.Flavour.ToString());
+            Cmd.Parameters.AddWithValue("@occurance", protein.Occurance);
+            Cmd.Parameters.AddWithValue("@goal", protein.Goal.ToString());
+
+            Cmd.ExecuteNonQuery();
+
+            Disconnect();
+        }
+
+        public void UpdateClothing(Clothing clothing)
+        {
+            Connect();
+
+            string sql = "UPDATE indiv_products AS p INNER JOIN indiv_clothes AS pro ON p.id = pro.id SET p.`name` = @name, p.`brand` = @brand, p.`description` = @description, p.`price` = @price, p.`type` = @type, p.`image` = @image, pro.`cloth_type` = @clothType, pro.`cloth_size` = @size WHERE p.`id` = @id";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@name", clothing.Name);
+            Cmd.Parameters.AddWithValue("@id", clothing.ID);
+            Cmd.Parameters.AddWithValue("@brand", clothing.Brand);
+            Cmd.Parameters.AddWithValue("@description", clothing.Description);
+            Cmd.Parameters.AddWithValue("@price", clothing.Price);
+            Cmd.Parameters.AddWithValue("@type", clothing.Type.ToString());
+            Cmd.Parameters.AddWithValue("@image", clothing.Image);
+            Cmd.Parameters.AddWithValue("@clothType", clothing.ClothType.ToString());
+            Cmd.Parameters.AddWithValue("@size", clothing.ClothSize.ToString());
+
+            Cmd.ExecuteNonQuery();
+
+            Disconnect();
+        }
+
+        public void UpdateVitamins(Vitamins vitamins)
+        {
+            Connect();
+
+            string sql = "UPDATE indiv_products AS p INNER JOIN indiv_vitamins AS pro ON p.id = pro.id SET p.`name` = @name, p.`brand` = @brand, p.`description` = @description, p.`price` = @price, p.`type` = @type, p.`image` = @image, pro.`flavour` = @flavour, pro.`goal` = @goal WHERE p.`id` = @id";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@name", vitamins.Name);
+            Cmd.Parameters.AddWithValue("@id", vitamins.ID);
+            Cmd.Parameters.AddWithValue("@brand", vitamins.Brand);
+            Cmd.Parameters.AddWithValue("@description", vitamins.Description);
+            Cmd.Parameters.AddWithValue("@price", vitamins.Price);
+            Cmd.Parameters.AddWithValue("@type", vitamins.Type.ToString());
+            Cmd.Parameters.AddWithValue("@image", vitamins.Image);
+            Cmd.Parameters.AddWithValue("@flavour", vitamins.Flavour.ToString());
+            Cmd.Parameters.AddWithValue("@goal", vitamins.Goal.ToString());
+
+            Cmd.ExecuteNonQuery();
+
+            Disconnect();
+        }
     }
 }

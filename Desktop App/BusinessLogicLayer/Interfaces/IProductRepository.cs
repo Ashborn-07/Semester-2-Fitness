@@ -12,5 +12,8 @@ namespace BusinessLogicLayer
         public void DeleteProduct(int id);
         public Product GetProductById(int id);
         public List<Product> GetListOfProducts();
+        public void UpdateProtein(Protein protein);
+        public void UpdateClothing(Clothing clothing);
+        public void UpdateVitamins(Vitamins vitamins);
     }
 }

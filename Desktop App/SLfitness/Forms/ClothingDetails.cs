@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BusinessLogicLayer;
 using DataAccessLayer;
+using System.Drawing.Imaging;
 
 namespace SLfitnessDesktop
 {
@@ -49,6 +50,7 @@ namespace SLfitnessDesktop
             if (!String.IsNullOrEmpty(openFileDialog.FileName))
             {
                 Image image = Image.FromFile(openFileDialog.FileName);
+                image = ResizeImage(image);
                 picBox.Image = image;
                 picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
@@ -56,48 +58,81 @@ namespace SLfitnessDesktop
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ClothType clothType = new ClothType();
-
-            switch(cbClothType.Text)
+            if (ValidationInput())
             {
-                case "T SHIRT":
-                    clothType = ClothType.T_SHIRTS;
-                    break;
-                case "HOODIES":
-                    clothType = ClothType.HOODIES;
-                    break;
-                case "JACKETS":
-                    clothType = ClothType.JACKETS;
-                    break;
-                case "LEGGINGS":
-                    clothType = ClothType.LEGGINGS;
-                    break;
-                case "SPORT BRAS":
-                    clothType = ClothType.SPORT_BRAS;
-                    break;
-                case "SPORT SHOES":
-                    clothType = ClothType.SPORT_SHOES;
-                    break;
-                default:
-                    break;
+                ClothType clothType = new ClothType();
+
+                switch (cbClothType.Text)
+                {
+                    case "T SHIRT":
+                        clothType = ClothType.T_SHIRTS;
+                        break;
+                    case "HOODIES":
+                        clothType = ClothType.HOODIES;
+                        break;
+                    case "JACKETS":
+                        clothType = ClothType.JACKETS;
+                        break;
+                    case "LEGGINGS":
+                        clothType = ClothType.LEGGINGS;
+                        break;
+                    case "SPORT BRAS":
+                        clothType = ClothType.SPORT_BRAS;
+                        break;
+                    case "SPORT SHOES":
+                        clothType = ClothType.SPORT_SHOES;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (lblProductId.Text != ".")
+                {
+                    Clothing clothing = new Clothing(Convert.ToInt32(lblProductId.Text), tbName.Text, cbBrand.Text, tbDescription.Text, numPrice.Value, ProductType.CLOTHES, ImageToBytesConverter(picBox.Image), clothType, (ClothSize)Enum.Parse(typeof(ClothSize), cbSize.Text));
+
+                    try
+                    {
+                        service.UpdateProduct(clothing);
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    catch (Exception es)
+                    {
+                        MessageBox.Show(es.Message);
+                        return;
+                    }
+
+                    MessageBox.Show("Clothing successfully updated");
+                }
+                else
+                {
+                    Clothing clothing = new Clothing(tbName.Text, cbBrand.Text, tbDescription.Text, numPrice.Value, ProductType.CLOTHES, ImageToBytesConverter(picBox.Image), clothType, (ClothSize)Enum.Parse(typeof(ClothSize), cbSize.Text));
+
+                    try
+                    {
+                        service.AddProduct(clothing);
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    catch (Exception es)
+                    {
+                        MessageBox.Show(es.Message);
+                        return;
+                    }
+
+                    NotificationAdded();
+                }
+
+                return;
             }
 
-            Clothing clothing = new Clothing(tbName.Text, cbBrand.Text, tbDescription.Text, numPrice.Value, ProductType.CLOTHES, ImageToBytesConverter(picBox.Image), clothType, (ClothSize)Enum.Parse(typeof(ClothSize), cbSize.Text));
-
-            try
-            {
-                service.AddProduct(clothing);
-            } catch(MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            } catch (Exception es)
-            {
-                MessageBox.Show(es.Message);
-                return;
-            }
-
-            Notification();
+            MessageBox.Show("Please be sure to fill all fields and choose an image");
         }
 
         private void PopulateFilterBox()
@@ -113,13 +148,18 @@ namespace SLfitnessDesktop
         private void PopulateProductFields()
         {
             picBox.Image = ByteToImageConverter(clothing.Image);
+            picBox.SizeMode = PictureBoxSizeMode.StretchImage;
             tbName.Text = clothing.Name;
             tbDescription.Text = clothing.Description;
             numPrice.Value = clothing.Price;
             cbBrand.Text = clothing.Brand;
             cbSize.Text = clothing.ClothSize.ToString();
+            if (clothing.ID != null)
+            {
+                lblProductId.Text = clothing.ID.ToString();
+            }
 
-            switch (clothing.ClothType.ToString()) 
+            switch (clothing.ClothType.ToString())
             {
                 case "T_SHIRT":
                     cbClothType.Text = "T SHIRT";
@@ -168,7 +208,7 @@ namespace SLfitnessDesktop
             form.RefreshData();
         }
 
-        private void Notification()
+        private void NotificationAdded()
         {
             DialogResult ds = MessageBox.Show("Product added successfully, do you want to add another clothing.", "", MessageBoxButtons.YesNo);
 
@@ -185,6 +225,27 @@ namespace SLfitnessDesktop
             }
 
             this.Close();
+        }
+
+        private Image ResizeImage(Image imgToResize)
+        {
+            Image resizedImage = imgToResize;
+            Bitmap bitmap = new Bitmap(resizedImage);
+            return (Image)(new Bitmap(imgToResize, new Size(300, 300)));
+        }
+
+        private bool ValidationInput()
+        {
+            if (!String.IsNullOrEmpty(tbName.Text) && !String.IsNullOrEmpty(tbDescription.Text) 
+                && cbSize.SelectedIndex != -1 && cbClothType.SelectedIndex != -1 && picBox.Image != null)
+            {
+                if (cbBrand.SelectedIndex != -1 || cbBrand.Text != "brand")
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

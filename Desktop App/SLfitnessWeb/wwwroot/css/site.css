@@ -125,6 +125,19 @@ section {
             background: #f00;
         }
 
+    .header .navbar button {
+        display: inline-block;
+        padding: 1.5rem 2rem;
+        font-size: 1.7rem;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+    }
+
+        .header .navbar button:hover {
+            background: #f00;
+        }
+
 #menu-btn {
     font-size: 3rem;
     color: #fff;
@@ -559,6 +572,11 @@ section {
                 font-size: 2rem;
             }
 
+            .header .navbar form {
+                display: block;
+                font-size: 2rem;
+            }
+
     .about {
         gap: 3rem;
     }
@@ -650,6 +668,11 @@ section {
                 font-size: 2rem;
             }
 
+            .header .navbar form {
+                display: block;
+                font-size: 2rem;
+            }
+
     .about {
         gap: 3rem;
     }
@@ -728,9 +751,9 @@ section {
         border-bottom-color: red;
     }
 
-    .input-field input:is(:focus) ~ i {
-        color: red;
-    }
+        .input-field input:is(:focus) ~ i {
+            color: red;
+        }
 
 .input-field i {
     position: absolute;
@@ -751,26 +774,26 @@ section {
     text-decoration: none;
 }
 
-.form a:hover {
-    text-decoration: underline;
-}
+    .form a:hover {
+        text-decoration: underline;
+    }
 
 .form .button {
     margin-top: 35px;
 }
 
-.form .button input {
-    border: none;
-    background-color: red;
-    color: #fff;
-    letter-spacing: 1px;
-    border-radius: 6px;
-    font-size: 17px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-}
+    .form .button input {
+        border: none;
+        background-color: red;
+        color: #fff;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        font-size: 17px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+    }
 
 .button input:hover {
     background-color: white;
@@ -783,8 +806,13 @@ section {
     font-size: 7px;
 }
 
-/* Members display */
+@media(max-width: 768px) {
+    .login-container {
+        margin-left: 0px;
+    }
+}
 
+/* Members display */
 .section-members {
     min-height: 100vh;
     width: 100%;
@@ -867,7 +895,9 @@ section {
 /* Product cards styling */
 .product-section {
     background-color: #1e1f26;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 1.5rem;
 }
 
 .card-product {
@@ -878,6 +908,7 @@ section {
     font-family: arial;
     color: red;
     font-size: 16px;
+    padding: 10px;
 }
 
 .product-price {

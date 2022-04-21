@@ -19,7 +19,7 @@
 <body>
     <header class="header">
 
-        <a href="#" class="logo"> <span>SL</span>FIT </a>
+        <a href="/Index" class="logo"> <span>SL</span>FIT </a>
 
         <div id="menu-btn" class="fas fa-bars"></div>
 
@@ -31,17 +31,12 @@
             {
                 <a asp-page="/DietPage">Diets</a>
                 <a asp-page="/ProductPage">Products</a>
-                <a asp-page="/ProfilePage">profile</a>
+                <a asp-page="/Profile">profile</a>
+                <form method="post" asp-page="/LogOut" style="display: inline-block"><button type="submit">log out</button></form>
 
                 @if (User.IsInRole("COACH"))
                 {
                     <a asp-page="/MembersPage">Members</a>
-                    <a asp-page="/LogIn">log out</a>
-                }
-
-                @if (User.IsInRole("USER"))
-                {
-                    <a asp-page="/LogIn">log out</a>
                 }
             }
             else
@@ -87,10 +82,10 @@
 
             <div class="box">
                 <h3>opening hours</h3>
-                <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
-                <p> <i class="fas fa-phone"></i> +111-222-3333 </p>
-                <p> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </p>
-                <p> <i class="fas fa-map"></i> mumbai, india - 400104 </p>
+                <p> <i class="fas fa-phone"></i> +359-456-7890-098 </p>
+                <p> <i class="fas fa-phone"></i> +359-222-3333-098 </p>
+                <p> <i class="fas fa-envelope"></i> bulgaria.slfit@gmail.com </p>
+                <p> <i class="fas fa-map"></i> Sofia, Bulgaria - 1612 </p>
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>

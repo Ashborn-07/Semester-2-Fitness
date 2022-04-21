@@ -85,5 +85,15 @@ namespace BusinessLogicLayer
         {
             return repository.GetAllUsersInList();
         }
+
+        public User GetUserById(int id)
+        {
+            return repository.GetUserById(id);
+        }
+
+        public void UpdateUserWeb(User user, int id)
+        {
+            repository.UpdateUserWeb(user, id);
+        }
     }
 }

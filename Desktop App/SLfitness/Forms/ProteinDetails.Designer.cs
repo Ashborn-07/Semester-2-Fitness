@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tbOccurance = new System.Windows.Forms.TextBox();
             this.cbGoal = new System.Windows.Forms.ComboBox();
             this.cbProteinFlavour = new System.Windows.Forms.ComboBox();
             this.btnBrowseImage = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.cbBrand = new System.Windows.Forms.ComboBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.picBox = new System.Windows.Forms.PictureBox();
-            this.tbOccurance = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
@@ -78,6 +78,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(408, 308);
             this.panel1.TabIndex = 3;
+            // 
+            // tbOccurance
+            // 
+            this.tbOccurance.Location = new System.Drawing.Point(21, 123);
+            this.tbOccurance.Name = "tbOccurance";
+            this.tbOccurance.PlaceholderText = "Occurance";
+            this.tbOccurance.Size = new System.Drawing.Size(148, 23);
+            this.tbOccurance.TabIndex = 58;
             // 
             // cbGoal
             // 
@@ -165,6 +173,11 @@
             131072});
             this.numPrice.Location = new System.Drawing.Point(21, 172);
             this.numPrice.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
+            this.numPrice.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.numPrice.Name = "numPrice";
             this.numPrice.Size = new System.Drawing.Size(148, 23);
             this.numPrice.TabIndex = 50;
@@ -206,14 +219,6 @@
             this.picBox.Size = new System.Drawing.Size(165, 196);
             this.picBox.TabIndex = 46;
             this.picBox.TabStop = false;
-            // 
-            // tbOccurance
-            // 
-            this.tbOccurance.Location = new System.Drawing.Point(21, 123);
-            this.tbOccurance.Name = "tbOccurance";
-            this.tbOccurance.PlaceholderText = "Occurance";
-            this.tbOccurance.Size = new System.Drawing.Size(148, 23);
-            this.tbOccurance.TabIndex = 58;
             // 
             // ProteinDetails
             // 
