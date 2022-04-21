@@ -7,20 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class Menu : Form
     {
 
-        private int activeUserID;
-        private MenuHandler menuHandler;
+        private User user;
 
-        public Menu(int id)
+        public Menu(User user)
         {
             InitializeComponent();
 
-            this.activeUserID = id;
+            this.user = user;
         }
 
         private void Menu_FormClosed(object sender, FormClosedEventArgs e)
@@ -31,10 +32,9 @@ namespace SLfitness
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            menuHandler = new MenuHandler();
-            pBoxProfile.Image = menuHandler.GetImage(activeUserID);
+            pBoxProfile.Image = ConverterOfBytesToImage(user.Image);
             pBoxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
-            lblGreeter.Text = lblGreeter.Text + menuHandler.GetFirstName(activeUserID);
+            lblGreeter.Text = lblGreeter.Text + user.FirstName;
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -44,30 +44,43 @@ namespace SLfitness
 
         private void btnDiets_Click(object sender, EventArgs e)
         {
-            DietsForm dietsForm = new DietsForm(activeUserID);
+            DietsForm dietsForm = new DietsForm(user, this);
             dietsForm.Show();
             this.Hide();
         }
 
         private void btnEquipment_Click(object sender, EventArgs e)
         {
-            ProductsForm equipmentsForm = new ProductsForm(activeUserID);
+            ProductsForm equipmentsForm = new ProductsForm(user, this);
             equipmentsForm.Show();
             this.Hide();
         }
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-            Schedule schedule = new Schedule(activeUserID);
+            Schedule schedule = new Schedule(user, this);
             schedule.Show();
             this.Hide();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings(activeUserID);
+            Settings settings = new Settings(user, this);
             settings.Show();
             this.Hide();
+        }
+
+        private Image ConverterOfBytesToImage(byte[] vs)
+        {
+            if (vs != null)
+            {
+                MemoryStream ms = new MemoryStream(vs);
+                Image image = new Bitmap(ms);
+
+                return image;
+            }
+
+            return null;
         }
     }
 }

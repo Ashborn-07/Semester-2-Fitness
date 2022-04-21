@@ -1,0 +1,34 @@
+﻿@page
+@model SLfitnessWeb.Pages.LogInModel
+@{
+}
+
+<div class="login-container">
+    <div class="forms">
+        <div class="form login">
+            <span class="title">LogIn</span>
+
+            <form method="post" class="login-actual-form">
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your Username" asp-for="UserModel.Username" />
+                    <i class="uil uil-user"></i>
+                    <span asp-validation-for="UserModel.Username" class="span-validation"></span>
+                </div>
+                <div class="input-field">
+                    <input type="password" placeholder="Enter your Password" asp-for="UserModel.Password" />
+                    <i class="uil uil-padlock"></i>
+                    <span asp-validation-for="UserModel.Password" class="span-validation"></span>
+                </div>
+
+                <a href="#" class="text-forgotten">Forgot password?</a>
+
+                <div class="input-field button">
+                    <input type="submit" value="Log In"/>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> } 

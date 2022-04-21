@@ -7,24 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class DietImageForm : Form
     {
         private int id;
-        private DietsHandler dietHandler;
+        private DietService service;
 
         public DietImageForm(int id)
         {
             InitializeComponent();
             this.id = id;
+            IDietsRepository repository = new DietsRepository();
+            service = new DietService(repository);
         }
 
         private void DietImageForm_Load(object sender, EventArgs e)
         {
-            dietHandler = new DietsHandler();
-            picBoxDietImage.Image = dietHandler.GetImage(id);
+            picBoxDietImage.Image = service.ReturnDietImage(id);
             picBoxDietImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }

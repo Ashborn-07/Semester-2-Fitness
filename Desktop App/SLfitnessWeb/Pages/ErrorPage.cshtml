@@ -1,0 +1,10 @@
+﻿@page
+@model SLfitnessWeb.Pages.ErrorPageModel
+@{
+}
+<h1>@if (!String.IsNullOrEmpty(Model.Code))
+    {
+        @Model.Code;
+    }
+    Error
+</h1>

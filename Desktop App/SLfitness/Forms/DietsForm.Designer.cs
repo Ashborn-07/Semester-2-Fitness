@@ -1,4 +1,4 @@
-﻿namespace SLfitness
+﻿namespace SLfitnessDesktop
 {
     partial class DietsForm
     {
@@ -35,12 +35,12 @@
             this.dietBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.dietBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.btnAddDiet = new System.Windows.Forms.Button();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dietBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource1)).BeginInit();
@@ -97,6 +97,20 @@
             this.panel1.Size = new System.Drawing.Size(717, 308);
             this.panel1.TabIndex = 0;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Black;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRefresh.Location = new System.Drawing.Point(193, 253);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(176, 43);
+            this.btnRefresh.TabIndex = 22;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click_1);
+            // 
             // cbFilter
             // 
             this.cbFilter.FormattingEnabled = true;
@@ -128,7 +142,7 @@
             // pBoxLogo
             // 
             this.pBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pBoxLogo.Image = global::SLfitness.Properties.Resources.fit_logo;
+            this.pBoxLogo.Image = global::SLfitnessDesktop.Properties.Resources.fit_logo;
             this.pBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pBoxLogo.Name = "pBoxLogo";
@@ -149,20 +163,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "DIETS";
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.Black;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRefresh.Location = new System.Drawing.Point(193, 253);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(176, 43);
-            this.btnRefresh.TabIndex = 22;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click_1);
-            // 
             // DietsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -176,6 +176,7 @@
             this.Name = "DietsForm";
             this.Text = "DietsForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DietsForm_FormClosed);
+            this.Load += new System.EventHandler(this.DietsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dietBindingSource1)).EndInit();

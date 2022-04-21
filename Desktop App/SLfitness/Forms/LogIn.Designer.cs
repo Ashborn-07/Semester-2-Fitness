@@ -1,4 +1,4 @@
-﻿namespace SLfitness
+﻿namespace SLfitnessDesktop
 {
     partial class LogIn
     {
@@ -108,7 +108,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::SLfitness.Properties.Resources.fit_logo;
+            this.pictureBox1.Image = global::SLfitnessDesktop.Properties.Resources.fit_logo;
             this.pictureBox1.Location = new System.Drawing.Point(140, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(125, 62);

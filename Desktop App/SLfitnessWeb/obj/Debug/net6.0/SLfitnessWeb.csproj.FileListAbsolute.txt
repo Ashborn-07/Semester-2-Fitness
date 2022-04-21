@@ -1,0 +1,104 @@
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\appsettings.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.staticwebassets.runtime.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.exe
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.deps.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.runtimeconfig.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\BusinessLogicLayer.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\DataAccessLayer.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\BusinessLogicLayer.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\bin\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.csproj.AssemblyReference.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.AssemblyInfoInputs.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.AssemblyInfo.cs
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.csproj.CoreCompileInputs.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.RazorAssemblyInfo.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.RazorAssemblyInfo.cs
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\scopedcss\bundle\SLfitnessWeb.styles.css
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\scopedcss\projectbundle\SLfitnessWeb.bundle.scp.css
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.csproj.CopyComplete
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\refint\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.genruntimeconfig.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Project-SLFIT\SLfitnessWeb\obj\Debug\net6.0\ref\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\appsettings.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.staticwebassets.runtime.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.exe
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.deps.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.runtimeconfig.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\SLfitnessWeb.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\BCrypt.Net-Next.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\Ubiety.Dns.Core.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\ZstdNet.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\BusinessLogicLayer.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\DataAccessLayer.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\BusinessLogicLayer.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\bin\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.csproj.AssemblyReference.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.AssemblyInfoInputs.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.AssemblyInfo.cs
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.csproj.CoreCompileInputs.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.RazorAssemblyInfo.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.RazorAssemblyInfo.cs
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\scopedcss\bundle\SLfitnessWeb.styles.css
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\scopedcss\projectbundle\SLfitnessWeb.bundle.scp.css
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.csproj.CopyComplete
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\refint\SLfitnessWeb.dll
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.pdb
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\SLfitnessWeb.genruntimeconfig.cache
+C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\obj\Debug\net6.0\ref\SLfitnessWeb.dll

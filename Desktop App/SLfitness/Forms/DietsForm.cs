@@ -7,39 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class DietsForm : Form
     {
-        private int activeUserID;
-        private DietsHandler dietsHandler = new DietsHandler();
+        private User user;
+        private DietService service;
+        private Menu menu;
 
-        public DietsForm(int activeUserID)
+        public DietsForm(User user, Menu menu)
         {
             InitializeComponent();
-
-            this.activeUserID = activeUserID;
+            this.user = user;
+            this.menu = menu;
+            IDietsRepository repository = new DietsRepository();
+            service = new DietService(repository);
         }
 
         private void DietsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Menu menu = new Menu(activeUserID);
             menu.Show();
         }
 
         private void btnAddDiet_Click(object sender, EventArgs e)
         {
-            NewDiet newDiet = new NewDiet(activeUserID);
+            NewDiet newDiet = new NewDiet(user);
             newDiet.Show();
         }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            dietsHandler = new DietsHandler();
-            dietsHandler.DisplayDiets(dataGridv);
-        }
-
 
         //TODO to be displayed the extra information when clicked on row probably
         private void dataGridv_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -55,7 +53,7 @@ namespace SLfitness
             else if (e.ColumnIndex == 1 && e.RowIndex != -1)
             {
                 //TODO with the UpdateDiet Form
-                UpdateDiet updateDiet = new UpdateDiet(id, dietsHandler.GetTypeOfDiet(id), activeUserID);
+                UpdateDiet updateDiet = new UpdateDiet(id, service.ReturnDietType(id), user);
                 updateDiet.Show();
             }
         }
@@ -65,21 +63,79 @@ namespace SLfitness
 
             if (cbFilter.SelectedItem.ToString().Equals("Zero Carbs"))
             {
-                dietsHandler.DisplayZaroCarbsDiets(dataGridv);
+                try
+                {
+                    dataGridv.DataSource = service.DisplayDiets("zerocarbs");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (ApplicationCustomException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
             else if (cbFilter.SelectedItem.ToString().Equals("Healthy"))
             {
-                dietsHandler.DisplayHealthyDiets(dataGridv);
+                try
+                {
+                    dataGridv.DataSource = service.DisplayDiets("healthy");
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (ApplicationCustomException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
             }
             else
             {
-                dietsHandler.DisplayDiets(dataGridv);
+                try
+                {
+                    service.DisplayDiets("all");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
-            dietsHandler.DisplayDiets(dataGridv);
+            try
+            {
+                dataGridv.DataSource = service.DisplayDiets("all");
+            } catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DietsForm_Load(object sender, EventArgs e)
+        {
+            btnRefresh_Click_1(this, e);
         }
     }
 }

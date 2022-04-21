@@ -1,0 +1,20 @@
+﻿@page
+@model SLfitnessWeb.Pages.ProductPageModel
+@{
+}
+
+<section class="product-section">
+    @foreach (var product in Model.products)
+    {
+        var base64 = Convert.ToBase64String(@product.Image);
+        var imageSource = String.Format("data:image/jpg;base64,{0}", base64);
+
+        <div class="card-product">
+            <img src="@imageSource" alt="Denim Jeans" style="width:100%">
+            <h1>@product.Name</h1>
+            <p class="product-price">$@product.Price</p>
+            <p class="product-brand">@product.Brand, @product.Description</p>
+            <p><button>Add to Cart</button></p>
+        </div>
+    }
+</section>

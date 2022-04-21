@@ -7,27 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using BusinessLogicLayer;
+using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class Settings : Form
     {
-        private int activeUserID;
-        private SettingsHandler handler;
+        private User user;
+        private UserService service;
+        private Menu menu;
         private bool valid = true;
 
-        public Settings(int activeUserID)
+        public Settings(User user, Menu menu)
         {
             InitializeComponent();
-            this.activeUserID = activeUserID;
+            this.user = user;
+            this.menu = menu;
+            IUserRepository repository = new UserRepository();
+            service = new UserService(repository);
         }
 
-        private void tbSaveChanges_Click(object sender, EventArgs e)
+        private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            handler = new SettingsHandler();
+            try
+            {
+                service.UpdateUserInfo(new User(user.Id, tbUsername.Text, tbFirstName.Text, tblastName.Text, tbEmail.Text, ConverterOfImageToBytes(picBox.Image)));
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (Exception ex)
 
-            handler.UpdateUserInfo(activeUserID, tbUsername.Text, tbEmail.Text, tbFirstName.Text, tblastName.Text, ConverterOfImage(picBox.Image));
-            handler.DisplayProfileInformation(activeUserID, tbUsername, tbEmail, tbFirstName, tblastName, picBox);
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            DisplayUserInformation();
 
             MessageBox.Show("Changes completely saved");
 
@@ -52,13 +72,11 @@ namespace SLfitness
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            handler = new SettingsHandler();
-            handler.DisplayProfileInformation(activeUserID, tbUsername, tbEmail, tbFirstName, tblastName, picBox);
+            DisplayUserInformation();
         }
 
         private void Settings_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Menu menu = new Menu(activeUserID);
             if (valid)
             {
                 DialogResult dialogResult = MessageBox.Show("Do you really want to leave this page?", "Any unsaved data will be lost.", MessageBoxButtons.YesNo);
@@ -75,11 +93,10 @@ namespace SLfitness
                 }
             }
 
-            
             menu.Show();
         }
 
-        private byte[] ConverterOfImage(Image image)
+        private byte[] ConverterOfImageToBytes(Image image)
         {
             byte[] img;
 
@@ -88,6 +105,29 @@ namespace SLfitness
             img = memoryStream.ToArray();
 
             return img;
+        }
+
+        private Image ConverOfBytesToImage(byte[] vs)
+        {
+            if (vs != null)
+            {
+                MemoryStream ms = new MemoryStream(vs);
+                Image image = new Bitmap(ms);
+
+                return image;
+            }
+
+            return null;
+        }
+
+        private void DisplayUserInformation()
+        {
+            tbUsername.Text = user.UserName;
+            tbEmail.Text = user.Email;
+            tbFirstName.Text = user.FirstName;
+            tblastName.Text = user.LastName;
+            picBox.Image = ConverOfBytesToImage(user.Image);
+            picBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

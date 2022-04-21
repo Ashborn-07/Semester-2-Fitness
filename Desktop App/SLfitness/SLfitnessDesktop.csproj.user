@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitness\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Forms\ClothingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DietImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProductsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\DietsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\NewDiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\UpdateDiet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProductTypeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\ProteinDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\VitaminDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

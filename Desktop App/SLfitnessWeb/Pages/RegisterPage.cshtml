@@ -1,0 +1,57 @@
+﻿@page
+@model SLfitnessWeb.Pages.RegisterPageModel
+@{
+}
+
+<div class="login-container">
+    <div class="forms">
+        <div class="form login">
+            <span class="title">Register</span>
+
+            <form method="post" class="login-actual-form">
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your Username" asp-for="registerModel.Username" />
+                    <i class="uil uil-user"></i>
+                    <span asp-validation-for="registerModel.Username" class="span-validation"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="email" placeholder="Enter your Email" asp-for="registerModel.Email" />
+                    <i class="uil uil-envelope"></i>
+                    <span asp-validation-for="registerModel.Email" class="span-validation"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your first name" asp-for="registerModel.FirstName" />
+                    <i class="uil uil-book-reader"></i>
+                    <span asp-validation-for="registerModel.FirstName" class="span-validation"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="text" placeholder="Enter your last name" asp-for="registerModel.LastName" />
+                    <i class="uil uil-book-reader"></i>
+                    <span asp-validation-for="registerModel.LastName" class="span-validation"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" placeholder="Enter your Password" asp-for="registerModel.Password" />
+                    <i class="uil uil-padlock"></i>
+                    <span asp-validation-for="registerModel.Password"></span>
+                </div>
+
+                <div class="input-field">
+                    <input type="password" placeholder="Repeat your Password" asp-for="registerModel.RepeatPassword" />
+                    <i class="uil uil-padlock"></i>
+                    <span asp-validation-for="registerModel.RepeatPassword" class="span-validation"></span>
+                </div>
+
+                <div class="input-field button">
+                    <input type="submit" value="Register"/>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+@section Scripts { <partial name="_ValidationScriptsPartial" /> } 
