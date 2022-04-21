@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
@@ -83,9 +84,21 @@ namespace SLfitnessDesktop
             try
             {
                 service.AddDiet(diet);
-            } catch (Exception ex)
+            }
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (ApplicationCustomException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
 
             DialogResult dr = MessageBox.Show("Do you want to add a new diet?", "", MessageBoxButtons.YesNo);

@@ -29,5 +29,7 @@ namespace BusinessLogicLayer
         public Image GetImage(int id);
 
         public List<Diet> GetAllDiets();
+
+        public bool CheckIfDietExists(Diet diet);
     }
 }

@@ -15,5 +15,6 @@ namespace BusinessLogicLayer
         public string LastName { get; set; }
         [Required(ErrorMessage = "Email is required")]
         public string Email { get; set; }
+
     }
 }

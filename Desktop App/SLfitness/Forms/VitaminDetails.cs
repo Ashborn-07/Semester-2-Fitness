@@ -75,10 +75,17 @@ namespace SLfitnessDesktop
                     catch (MySqlException ex)
                     {
                         MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    catch(ApplicationCustomException es)
+                    {
+                        MessageBox.Show(es.Message);
+                        return;
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
+                        return;
                     }
 
                     MessageBox.Show("Vitamins successfully updated");
@@ -94,10 +101,17 @@ namespace SLfitnessDesktop
                     catch (MySqlException ex)
                     {
                         MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    catch (ApplicationCustomException es)
+                    {
+                        MessageBox.Show(es.Message);
+                        return;
                     }
                     catch (Exception es)
                     {
                         MessageBox.Show(es.Message);
+                        return;
                     }
 
                     NotificationAdded();

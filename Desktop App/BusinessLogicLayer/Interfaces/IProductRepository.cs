@@ -15,5 +15,6 @@ namespace BusinessLogicLayer
         public void UpdateProtein(Protein protein);
         public void UpdateClothing(Clothing clothing);
         public void UpdateVitamins(Vitamins vitamins);
+        public bool CheckIfProductExists(Product product);
     }
 }

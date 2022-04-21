@@ -18,7 +18,13 @@ namespace BusinessLogicLayer
 
         public void AddProduct(Product product)
         {
-            repository.AddProduct(product);
+            if (!repository.CheckIfProductExists(product))
+            {
+                repository.AddProduct(product);
+                return;
+            }
+
+            throw new ApplicationCustomException("Product already exists.");
         }
 
         public DataTable DisplayProducts()

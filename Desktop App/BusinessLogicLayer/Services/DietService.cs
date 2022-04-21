@@ -21,15 +21,20 @@ namespace BusinessLogicLayer
         {
             if (diet.Name.Length > 30)
             {
-                throw new ApplicationException("Diet's name is too long. Must be equal or less than 30 characters.");
+                throw new ApplicationCustomException("Diet's name is too long. Must be equal or less than 30 characters.");
             }
 
             if (diet.Name.Length < 3)
             {
-                throw new ApplicationException("Diet's name is too short. It must have at least 4 characters.");
+                throw new ApplicationCustomException("Diet's name is too short. It must have at least 4 characters.");
             }
 
-            repository.AddDiet(diet);
+            if (!repository.CheckIfDietExists(diet))
+            {
+                repository.AddDiet(diet);
+            }
+
+            throw new ApplicationCustomException("Diet already exists.");
         }
 
         public DataTable DisplayDiets(string type)
@@ -48,12 +53,12 @@ namespace BusinessLogicLayer
                     dt = repository.DisplayHealthyDiets();
                     break;
                 default:
-                    throw new ApplicationException("DisplayDiets function malfunctioned.");
+                    throw new ApplicationCustomException("DisplayDiets function malfunctioned.");
             }
 
             if (dt == null)
             {
-                throw new ApplicationException("Error accesssing database.");
+                throw new ApplicationCustomException("Error accesssing database.");
             }
 
             return dt;
@@ -63,14 +68,14 @@ namespace BusinessLogicLayer
         {
             if (id == -1)
             {
-                throw new ApplicationException("Not properly selected diet.");
+                throw new ApplicationCustomException("Not properly selected diet.");
             }
 
             string type = repository.GetTypeOfDiet(id);
 
             if (type == null)
             {
-                throw new ApplicationException("Unexpected problem while getting the type.");
+                throw new ApplicationCustomException("Unexpected problem while getting the type.");
             }
 
             return type;
@@ -81,14 +86,14 @@ namespace BusinessLogicLayer
         {
             if (id == -1)
             {
-                throw new ApplicationException("Unexpected error occured from the diet id.");
+                throw new ApplicationCustomException("Unexpected error occured from the diet id.");
             }
 
              Image image = repository.GetImage(id);
 
             if (image == null)
             {
-                throw new ApplicationException("Unexpected error occured while accessing the diet image.");
+                throw new ApplicationCustomException("Unexpected error occured while accessing the diet image.");
             }
 
             return image;
@@ -102,7 +107,7 @@ namespace BusinessLogicLayer
 
             if (diet == null)
             {
-                throw new ApplicationException("Unexpected error ocurred while displaying the information about the diet.");
+                throw new ApplicationCustomException("Unexpected error ocurred while displaying the information about the diet.");
             }
 
             return diet;
@@ -119,7 +124,7 @@ namespace BusinessLogicLayer
                     repository.UpdateHealthyDietInfo(diet.Id, diet.Name, diet.Description, diet.Calories, diet.Fat, diet.Image, ((HealthyDiet)diet).Carbs);
                     break;
                 default:
-                    throw new ApplicationException("An unexpected error occurred during passing the information to the database.");
+                    throw new ApplicationCustomException("An unexpected error occurred during passing the information to the database.");
             }
         }
 

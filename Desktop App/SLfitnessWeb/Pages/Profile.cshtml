@@ -11,19 +11,19 @@
             <form method="post" class="login-actual-form">
 
                 <div class="input-field">
-                    <input type="email" placeholder="Enter your Email" value="@Model.GetEmail()" asp-for="profileModelLogic.Email" />
+                    <input type="email" placeholder="Enter your Email" value="@Model.profileModelLogic.Email" asp-for="profileModelLogic.Email" />
                     <i class="uil uil-envelope"></i>
                     <span asp-validation-for="profileModelLogic.Email" class="span-validation"></span>
                 </div>
 
                 <div class="input-field">
-                    <input type="text" placeholder="Enter your first name" value="@Model.GetFirstName()" asp-for="profileModelLogic.FirstName" />
+                    <input type="text" placeholder="Enter your first name" value="@Model.profileModelLogic.FirstName" asp-for="profileModelLogic.FirstName" />
                     <i class="uil uil-book-reader"></i>
                     <span asp-validation-for="profileModelLogic.FirstName" class="span-validation"></span>
                 </div>
 
                 <div class="input-field">
-                    <input type="text" placeholder="Enter your last name" value="@Model.GetLastName()" asp-for="profileModelLogic.LastName" />
+                    <input type="text" placeholder="Enter your last name" value="@Model.profileModelLogic.LastName" asp-for="profileModelLogic.LastName" />
                     <i class="uil uil-book-reader"></i>
                     <span asp-validation-for="profileModelLogic.LastName" class="span-validation"></span>
                 </div>

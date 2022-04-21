@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
@@ -64,20 +65,44 @@ namespace SLfitnessDesktop
             {
                 try
                 {
-                    service.DisplayDiets("zerocarbs");
-                } catch (Exception ex)
+                    dataGridv.DataSource = service.DisplayDiets("zerocarbs");
+                }
+                catch (MySqlException ex)
                 {
                     MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (ApplicationCustomException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
             else if (cbFilter.SelectedItem.ToString().Equals("Healthy"))
             {
                 try
                 {
-                    service.DisplayDiets("healthy");
-                } catch (Exception ex)
+                    dataGridv.DataSource = service.DisplayDiets("healthy");
+                }
+                catch (MySqlException ex)
                 {
                     MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (ApplicationCustomException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
                 }
             }
             else
@@ -85,7 +110,8 @@ namespace SLfitnessDesktop
                 try
                 {
                     service.DisplayDiets("all");
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -97,7 +123,11 @@ namespace SLfitnessDesktop
             try
             {
                 dataGridv.DataSource = service.DisplayDiets("all");
-            } catch (Exception ex)
+            } catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

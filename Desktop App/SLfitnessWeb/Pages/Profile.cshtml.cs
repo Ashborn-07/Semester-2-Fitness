@@ -17,6 +17,15 @@ namespace SLfitnessWeb.Pages
       
         public void OnGet()
         {
+            IUserRepository repository = new UserRepository();
+            UserService service = new UserService(repository);
+
+            var id = User.Claims.Where(c => c.Type == "id")
+                   .Select(c => c.Value).SingleOrDefault();
+
+            User user = service.GetUserById(Convert.ToInt32(id));
+
+            profileModelLogic = new ProfileModelLogic() { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email };
         }
 
         public IActionResult OnPost()
@@ -34,52 +43,6 @@ namespace SLfitnessWeb.Pages
             }
 
             return Page();
-        }
-
-        /// <summary>
-        /// ////////////////////////////////////////////////////////////////////////////////////
-        /// not best way to implement but only that i came up with no breaking the website /////
-        /// ////////////////////////////////////////////////////////////////////////////////////
-        /// </summary>
-        /// <returns></returns>
-
-        public string GetFirstName()
-        {
-            IUserRepository repository = new UserRepository();
-            UserService service = new UserService(repository);
-
-            var id = User.Claims.Where(c => c.Type == "id")
-                   .Select(c => c.Value).SingleOrDefault();
-
-            User user = service.GetUserById(Convert.ToInt32(id));
-
-            return user.FirstName;
-        }
-
-        public string GetEmail()
-        {
-            IUserRepository repository = new UserRepository();
-            UserService service = new UserService(repository);
-
-            var id = User.Claims.Where(c => c.Type == "id")
-                   .Select(c => c.Value).SingleOrDefault();
-
-            User user = service.GetUserById(Convert.ToInt32(id));
-
-            return user.Email;
-        }
-
-        public string GetLastName()
-        {
-            IUserRepository repository = new UserRepository();
-            UserService service = new UserService(repository);
-
-            var id = User.Claims.Where(c => c.Type == "id")
-                   .Select(c => c.Value).SingleOrDefault();
-
-            User user = service.GetUserById(Convert.ToInt32(id));
-
-            return user.LastName;
         }
     }
 }

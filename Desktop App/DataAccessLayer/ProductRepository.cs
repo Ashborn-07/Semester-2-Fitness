@@ -427,5 +427,34 @@ namespace DataAccessLayer
 
             Disconnect();
         }
+
+        public bool CheckIfProductExists(Product product)
+        {
+            Connect();
+
+            string sql = "SELECT * FROM indiv_products WHERE `name` = @name, `brand` = @brand, `description` = @description, `price` = @price, `type` = @type, `image` = @image";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@name", product.Name);
+            Cmd.Parameters.AddWithValue("@brand", product.Brand);
+            Cmd.Parameters.AddWithValue("@description", product.Description);
+            Cmd.Parameters.AddWithValue("@price", product.Price);
+            Cmd.Parameters.AddWithValue("@type", product.Type.ToString());
+            Cmd.Parameters.AddWithValue("@image", product.Image);
+
+            try
+            {
+                Reader = Cmd.ExecuteReader();
+
+                if (Reader.HasRows)
+                {
+                    return true;
+                }
+
+                return false;
+            } finally
+            {
+                Disconnect();
+            }
+        }
     }
 }

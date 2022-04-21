@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using MySql.Data.MySqlClient;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
@@ -25,7 +26,7 @@ namespace SLfitnessDesktop
         public UpdateDiet(int dietId, string type, User user)
         {
             InitializeComponent();
-           
+
             this.type = type;
             this.dietId = dietId;
             this.user = user;
@@ -38,7 +39,27 @@ namespace SLfitnessDesktop
             //TODO
             numCarbs.Enabled = false;
 
-            Diet diet = service.DisplayInformationAboutDiet(dietId, user.Id, type);
+            Diet diet = null;
+
+            try
+            {
+                diet = service.DisplayInformationAboutDiet(dietId, user.Id, type);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (ApplicationCustomException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             switch (diet)
             {
@@ -101,14 +122,32 @@ namespace SLfitnessDesktop
 
         private void btnUpdateDiet_Click(object sender, EventArgs e)
         {
-            if (numCarbs.Enabled == true)
+            try
             {
-                service.UpdateDietInformation(new HealthyDiet(dietId, tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, picture, (int)numCarbs.Value));
-            } else
-            {
-                service.UpdateDietInformation(new ZeroCarbsDiet(dietId, tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, picture));
+                if (numCarbs.Enabled == true)
+                {
+                    service.UpdateDietInformation(new HealthyDiet(dietId, tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, ConverterOfImageToByte(picBoxDiet.Image), (int)numCarbs.Value));
+                }
+                else
+                {
+                    service.UpdateDietInformation(new ZeroCarbsDiet(dietId, tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, ConverterOfImageToByte(picBoxDiet.Image)));
+                }
             }
-            
+            catch (MysqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (ApplicationCustomException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             valid = false;
             this.Close();

@@ -319,7 +319,7 @@ namespace DataAccessLayer
 
             Reader = Cmd.ExecuteReader();
 
-            while(Reader.Read())
+            while (Reader.Read())
             {
                 int id = Reader.GetInt32(0);
                 string name = Reader.GetString(1);
@@ -332,6 +332,34 @@ namespace DataAccessLayer
             Disconnect();
 
             return diets;
+        }
+
+        public bool CheckIfDietExists(Diet diet)
+        {
+            Connect();
+
+            string sql = "SELECT * FROM indiv_diets WHERE `name` = @name, `description` = @description, `image` = @image";
+            Cmd = new MySqlCommand(sql, Con);
+            Cmd.Parameters.AddWithValue("@name", diet.Name);
+            Cmd.Parameters.AddWithValue("@description", diet.Description);
+            Cmd.Parameters.AddWithValue("@image", diet.Image);
+
+            try
+            {
+                Reader = Cmd.ExecuteReader();
+
+                if (Reader.HasRows)
+                {
+                    return true;
+                }
+
+                return false;
+
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
     }
 }

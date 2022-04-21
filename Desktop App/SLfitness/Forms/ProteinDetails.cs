@@ -77,6 +77,11 @@ namespace SLfitnessDesktop
                         MessageBox.Show(ex.Message);
                         return;
                     }
+                    catch (ApplicationCustomException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
                     catch (Exception es)
                     {
                         MessageBox.Show(es.Message);
@@ -94,6 +99,11 @@ namespace SLfitnessDesktop
                         service.AddProduct(protein);
                     }
                     catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    catch (ApplicationCustomException ex)
                     {
                         MessageBox.Show(ex.Message);
                         return;

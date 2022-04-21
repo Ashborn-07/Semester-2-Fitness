@@ -28,10 +28,10 @@ namespace BusinessLogicLayer
                     return user;
                 }
 
-                throw new ApplicationException("Username or password are incorrect.");
+                throw new ApplicationCustomException("Username or password are incorrect.");
             }
 
-            throw new ApplicationException("Username and password lenght is invalid. It must be between 3 and 30 characters/symbols.");
+            throw new ApplicationCustomException("Username and password lenght is invalid. It must be between 3 and 30 characters/symbols.");
         }
 
         public void UpdateUserInfo(User user)
@@ -42,7 +42,7 @@ namespace BusinessLogicLayer
                 return;
             }
 
-            throw new ApplicationException("Email input is not valid. It should have \"@, .com, .nl\" etc.");
+            throw new ApplicationCustomException("Email input is not valid. It should have \"@, .com, .nl\" etc.");
         }
 
         public void RegisterUser(User user)
@@ -54,9 +54,9 @@ namespace BusinessLogicLayer
                     User newUser = new User(user.UserName, user.Email, user.FirstName, user.LastName, UserType.USER, BCrypt.Net.BCrypt.HashPassword(user.Password));
                     repository.RegisterUser(newUser);
                 }
-                throw new ApplicationException("Username and password lenght is invalid. It must be between 3 and 30 characters/symbols.");
+                throw new ApplicationCustomException("Username and password lenght is invalid. It must be between 3 and 30 characters/symbols.");
             }
-            throw new ApplicationException("Email input is not valid. It should have \"@, .com, .nl\" etc.");
+            throw new ApplicationCustomException("Email input is not valid. It should have \"@, .com, .nl\" etc.");
         }
 
         private bool EmailValidation(string email)
