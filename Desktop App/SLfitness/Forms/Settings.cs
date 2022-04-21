@@ -11,12 +11,12 @@ using MySql.Data.MySqlClient;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class Settings : Form
     {
         private User user;
-        private SettingsService service;
+        private UserService service;
         private Menu menu;
         private bool valid = true;
 
@@ -25,24 +25,26 @@ namespace SLfitness
             InitializeComponent();
             this.user = user;
             this.menu = menu;
-            ISettingsRepository repository = new SettingsRepository();
-            service = new SettingsService(repository);
+            IUserRepository repository = new UserRepository();
+            service = new UserService(repository);
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             try
             {
-                service.UpdateUserInfo(new User(user.Id, tbUsername.Text, tbFirstName.Text, tblastName.Text, tbEmail.Text, picBox.Image));
+                service.UpdateUserInfo(new User(user.Id, tbUsername.Text, tbFirstName.Text, tblastName.Text, tbEmail.Text, ConverterOfImageToBytes(picBox.Image)));
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
+                return;
             }
             catch (Exception ex)
 
             {
                 MessageBox.Show(ex.Message);
+                return;
             }
 
             DisplayUserInformation();
@@ -105,13 +107,26 @@ namespace SLfitness
             return img;
         }
 
+        private Image ConverOfBytesToImage(byte[] vs)
+        {
+            if (vs != null)
+            {
+                MemoryStream ms = new MemoryStream(vs);
+                Image image = new Bitmap(ms);
+
+                return image;
+            }
+
+            return null;
+        }
+
         private void DisplayUserInformation()
         {
             tbUsername.Text = user.UserName;
             tbEmail.Text = user.Email;
             tbFirstName.Text = user.FirstName;
             tblastName.Text = user.LastName;
-            picBox.Image = user.Image;
+            picBox.Image = ConverOfBytesToImage(user.Image);
             picBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }

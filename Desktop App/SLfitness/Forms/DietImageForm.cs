@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class DietImageForm : Form
     {

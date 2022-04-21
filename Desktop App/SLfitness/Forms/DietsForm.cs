@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class DietsForm : Form
     {
@@ -101,6 +101,11 @@ namespace SLfitness
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void DietsForm_Load(object sender, EventArgs e)
+        {
+            btnRefresh_Click_1(this, e);
         }
     }
 }

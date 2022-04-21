@@ -3,33 +3,55 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SLfitnessWeb</title>
+    <title>@ViewData["Title"] - SLFitness</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SLfitnessWeb.styles.css" asp-append-version="true" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- iconscout CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="~/css/site.css">
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">SLfitnessWeb</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <header class="header">
+
+        <a href="#" class="logo"> <span>SL</span>FIT </a>
+
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <nav class="navbar">
+            <a asp-page="/Index">home</a>
+            <a asp-page="/Index">about</a>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-page="/DietPage">Diets</a>
+                <a asp-page="/ProductPage">Products</a>
+                <a asp-page="/ProfilePage">profile</a>
+
+                @if (User.IsInRole("COACH"))
+                {
+                    <a asp-page="/MembersPage">Members</a>
+                    <a asp-page="/LogIn">log out</a>
+                }
+
+                @if (User.IsInRole("USER"))
+                {
+                    <a asp-page="/LogIn">log out</a>
+                }
+            }
+            else
+            {
+                <a asp-page="/LogIn">Log in</a>
+                <a asp-page="/RegisterPage">Register</a>
+            }
+
         </nav>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -37,11 +59,51 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - SLfitnessWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <!-- footer section starts -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a class="links" href="#home">home</a>
+                <a class="links" href="#about">about</a>
+                <a class="links" href="#features">features</a>
+                <a class="links" href="#pricing">pricing</a>
+                <a class="links" href="#trainers">trainers</a>
+                <a class="links" href="#blogs">blogs</a>
+            </div>
+
+            <div class="box">
+                <h3>opening hours</h3>
+                <p> monday : <i> 7:00am - 10:30pm </i> </p>
+                <p> tuesday : <i> 7:00am - 10:30pm </i> </p>
+                <p> wednesday : <i> 7:00am - 10:30pm </i> </p>
+                <p> friday : <i> 7:00am - 10:30pm </i> </p>
+                <p> saturday : <i> 7:00am - 10:30pm </i> </p>
+                <p> sunday : <i> closed </i> </p>
+            </div>
+
+            <div class="box">
+                <h3>opening hours</h3>
+                <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
+                <p> <i class="fas fa-phone"></i> +111-222-3333 </p>
+                <p> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </p>
+                <p> <i class="fas fa-map"></i> mumbai, india - 400104 </p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                    <a href="#" class="fab fa-pinterest"></a>
+                </div>
+            </div>
         </div>
-    </footer>
+
+    </section>
+
+    <!-- footer section ends -->
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

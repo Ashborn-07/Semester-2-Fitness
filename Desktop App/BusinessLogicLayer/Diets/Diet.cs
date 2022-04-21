@@ -44,5 +44,13 @@ namespace BusinessLogicLayer
             this.chef = chef;
             this.image = image;
         }
+
+        public Diet(string name, string description, int chef, byte[] image)
+        {
+            this.name = name;
+            this.description = description;
+            this.chef = chef;
+            this.image = image;
+        }
     }
 }

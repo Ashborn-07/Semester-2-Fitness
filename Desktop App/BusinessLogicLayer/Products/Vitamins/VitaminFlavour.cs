@@ -12,6 +12,6 @@ namespace BusinessLogicLayer
         STRAWBERRY,
         COOKIES,
         CHOCOLATE,
-        FOREST_FRUITS
+        NONE
     }
 }

@@ -1,18 +1,18 @@
 using BusinessLogicLayer;
 using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class LogIn : Form
     {
         private User user;
-        private UserLogInService service;
+        private UserService service;
 
         public LogIn()
         {
             InitializeComponent();
-            IUserLogInRepository repository = new UserLogInRepository();
-            service = new UserLogInService(repository);
+            IUserRepository repository = new UserRepository();
+            service = new UserService(repository);
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)

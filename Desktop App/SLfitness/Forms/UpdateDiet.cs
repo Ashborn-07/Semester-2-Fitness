@@ -11,7 +11,7 @@ using System.Drawing;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class UpdateDiet : Form
     {
@@ -61,6 +61,8 @@ namespace SLfitness
                     MessageBox.Show("Unexpected error occurred while displaying diet information at the window.");
                     break;
             }
+
+            picBoxDiet.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void btnPictureBrowse_Click(object sender, EventArgs e)

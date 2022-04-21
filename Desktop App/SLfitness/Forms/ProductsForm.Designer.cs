@@ -1,4 +1,4 @@
-﻿namespace SLfitness
+﻿namespace SLfitnessDesktop
 {
     partial class ProductsForm
     {
@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.btnUpdateProduct = new System.Windows.Forms.Button();
             this.btnCreateProduct = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnFilter = new System.Windows.Forms.Button();
-            this.cbTypeOfClothing = new System.Windows.Forms.ComboBox();
-            this.cbGoal = new System.Windows.Forms.ComboBox();
+            this.cbPrice = new System.Windows.Forms.ComboBox();
             this.cbType = new System.Windows.Forms.ComboBox();
+            this.cbBrand = new System.Windows.Forms.ComboBox();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.pBoxLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
@@ -104,10 +107,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnFilter);
-            this.groupBox1.Controls.Add(this.cbTypeOfClothing);
-            this.groupBox1.Controls.Add(this.cbGoal);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cbPrice);
             this.groupBox1.Controls.Add(this.cbType);
+            this.groupBox1.Controls.Add(this.cbBrand);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 5);
             this.groupBox1.Name = "groupBox1";
@@ -116,50 +121,51 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filters";
             // 
-            // btnFilter
+            // cbPrice
             // 
-            this.btnFilter.BackColor = System.Drawing.Color.Black;
-            this.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFilter.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnFilter.Location = new System.Drawing.Point(36, 364);
-            this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(112, 48);
-            this.btnFilter.TabIndex = 3;
-            this.btnFilter.Text = "Filter";
-            this.btnFilter.UseVisualStyleBackColor = false;
-            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // cbTypeOfClothing
-            // 
-            this.cbTypeOfClothing.FormattingEnabled = true;
-            this.cbTypeOfClothing.Location = new System.Drawing.Point(6, 247);
-            this.cbTypeOfClothing.Name = "cbTypeOfClothing";
-            this.cbTypeOfClothing.Size = new System.Drawing.Size(179, 33);
-            this.cbTypeOfClothing.TabIndex = 2;
-            // 
-            // cbGoal
-            // 
-            this.cbGoal.FormattingEnabled = true;
-            this.cbGoal.Location = new System.Drawing.Point(6, 149);
-            this.cbGoal.Name = "cbGoal";
-            this.cbGoal.Size = new System.Drawing.Size(179, 33);
-            this.cbGoal.TabIndex = 1;
+            this.cbPrice.FormattingEnabled = true;
+            this.cbPrice.Location = new System.Drawing.Point(6, 258);
+            this.cbPrice.Name = "cbPrice";
+            this.cbPrice.Size = new System.Drawing.Size(179, 33);
+            this.cbPrice.TabIndex = 2;
+            this.cbPrice.TextChanged += new System.EventHandler(this.cbPrice_TextChanged);
             // 
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(6, 53);
+            this.cbType.Location = new System.Drawing.Point(6, 159);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(179, 33);
-            this.cbType.TabIndex = 0;
+            this.cbType.TabIndex = 1;
+            this.cbType.TextChanged += new System.EventHandler(this.cbType_TextChanged);
+            // 
+            // cbBrand
+            // 
+            this.cbBrand.FormattingEnabled = true;
+            this.cbBrand.Location = new System.Drawing.Point(6, 62);
+            this.cbBrand.Name = "cbBrand";
+            this.cbBrand.Size = new System.Drawing.Size(179, 33);
+            this.cbBrand.TabIndex = 0;
+            this.cbBrand.TextChanged += new System.EventHandler(this.cbBrand_TextChanged);
             // 
             // dgvProducts
             // 
+            this.dgvProducts.AllowUserToAddRows = false;
+            this.dgvProducts.AllowUserToDeleteRows = false;
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProducts.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProducts.Location = new System.Drawing.Point(209, 19);
+            this.dgvProducts.MultiSelect = false;
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 25;
+            this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProducts.Size = new System.Drawing.Size(825, 430);
             this.dgvProducts.TabIndex = 6;
             // 
@@ -186,6 +192,36 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Products";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(6, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 21);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Brand:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(6, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 21);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Product Type:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(6, 234);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 21);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Price filter:";
+            // 
             // ProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -202,6 +238,7 @@
             this.Load += new System.EventHandler(this.ProductsForm_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             this.ResumeLayout(false);
@@ -217,11 +254,13 @@
         private Button btnUpdateProduct;
         private Button btnCreateProduct;
         private GroupBox groupBox1;
-        private Button btnFilter;
-        private ComboBox cbTypeOfClothing;
-        private ComboBox cbGoal;
+        private ComboBox cbPrice;
         private ComboBox cbType;
+        private ComboBox cbBrand;
         private DataGridView dgvProducts;
         private Label label1;
+        private Label label4;
+        private Label label3;
+        private Label label2;
     }
 }

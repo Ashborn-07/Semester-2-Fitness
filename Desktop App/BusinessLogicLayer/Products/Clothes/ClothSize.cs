@@ -13,7 +13,7 @@ namespace BusinessLogicLayer
         M,
         L,
         XL,
-        XLL,
-        XLLL
+        XXL,
+        XXXL
     }
 }

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SMopqYwcfVo9qAbCF/AZIBw3aBuGHa8ugK8vOnfAzbSkL06ypoct6qwfNutcL9pUaVkngwZePzYioxOpn4rwqA==",
+  "dgSpecHash": "zx0ToHouLR5AHKzIeXRCKBFZX7ChWK33avZ6BzEm/zQ1e5jEV1UJJVzvbWPhiyZyYTALXBk6lwcrL1dctLrOxA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitnessWeb\\SLfitnessWeb.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Vartan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Vartan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\Vartan\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
     "C:\\Users\\Vartan\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",

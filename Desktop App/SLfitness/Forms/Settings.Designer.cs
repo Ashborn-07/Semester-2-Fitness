@@ -1,4 +1,4 @@
-﻿namespace SLfitness
+﻿namespace SLfitnessDesktop
 {
     partial class Settings
     {

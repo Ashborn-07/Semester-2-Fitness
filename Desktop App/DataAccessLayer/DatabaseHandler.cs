@@ -19,14 +19,20 @@ namespace DataAccessLayer
 
         public void Connect()
         {
-            con = new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi482834;Database=dbi482834;Pwd=Syrux79;Allow User Variables=True;");
-            con.Open();
+            if (con == null)
+            {
+                con = new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi482834;Database=dbi482834;Pwd=Syrux79;Allow User Variables=True;");
+                con.Open();
+            }
         }
 
         public void Disconnect()
         {
-            con.Close();
-            con = null;
+            if (con.State == System.Data.ConnectionState.Open && con != null)
+            {
+                con.Close();
+                con = null;
+            }
         }
     }
 }

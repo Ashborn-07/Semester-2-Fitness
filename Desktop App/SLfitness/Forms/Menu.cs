@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BusinessLogicLayer;
 using DataAccessLayer;
 
-namespace SLfitness
+namespace SLfitnessDesktop
 {
     public partial class Menu : Form
     {
@@ -32,7 +32,7 @@ namespace SLfitness
 
         private void Menu_Load(object sender, EventArgs e)
         {
-            pBoxProfile.Image = user.Image;
+            pBoxProfile.Image = ConverterOfBytesToImage(user.Image);
             pBoxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
             lblGreeter.Text = lblGreeter.Text + user.FirstName;
         }
@@ -68,6 +68,19 @@ namespace SLfitness
             Settings settings = new Settings(user, this);
             settings.Show();
             this.Hide();
+        }
+
+        private Image ConverterOfBytesToImage(byte[] vs)
+        {
+            if (vs != null)
+            {
+                MemoryStream ms = new MemoryStream(vs);
+                Image image = new Bitmap(ms);
+
+                return image;
+            }
+
+            return null;
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿@page
+@model SLfitnessWeb.Pages.MembersPageModel
+@{
+}
+
+<section class="section-members">
+    @foreach (var user in Model.users)
+    {
+        <div class="container-members">
+        @if (user.Image != null)
+        {
+            var base64 = Convert.ToBase64String(@user.Image);
+            var imageSource = String.Format("data:image/jpg;base64,{0}", base64);
+
+            <div class="left" style="background: url(@imageSource) no-repeat center / cover;"></div>   
+        } 
+        else 
+        {
+            <div class="left" style="background: url(https://res.cloudinary.com/dssmw7qxi/image/upload/v1649950239/happy-young-woman-with-thumbs-up_1154-254-e1520310622147_xt36cc.jpg) no-repeat center / cover;"></div>
+        }
+
+        <div class="right">
+            <div class="content-members">
+                <h1>@user.UserName</h1>
+                <p>@user.FirstName @user.LastName</p>
+                <p>@user.Email</p>
+                <p>@user.Type</p>
+                    @if (user.Type.ToString().Equals("USER"))
+                    {
+                        <a href="#" class="btn">Click Me</a>
+                    }
+            </div>
+        </div>
+    </div>
+    }
+</section>

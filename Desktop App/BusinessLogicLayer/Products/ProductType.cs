@@ -11,10 +11,6 @@ namespace BusinessLogicLayer
         TABLETS,
         CAPSULES,
         POWDER,
-        DRINKS,
-        LIQUIDS,
-        BARS,
-        GELS,
-        EQUIPMENT
+        CLOTHES
     }
 }

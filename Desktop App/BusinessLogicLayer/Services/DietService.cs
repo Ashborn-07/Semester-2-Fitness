@@ -122,5 +122,10 @@ namespace BusinessLogicLayer
                     throw new ApplicationException("An unexpected error occurred during passing the information to the database.");
             }
         }
+
+        public List<Diet> GetListOfDiets()
+        {
+            return repository.GetAllDiets();
+        }
     }
 }

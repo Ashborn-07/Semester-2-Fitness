@@ -27,5 +27,7 @@ namespace BusinessLogicLayer
         public void UpdateZeroCarbsDietInfo(int id, string name, string description, int calories, int fat, byte[] image);
 
         public Image GetImage(int id);
+
+        public List<Diet> GetAllDiets();
     }
 }

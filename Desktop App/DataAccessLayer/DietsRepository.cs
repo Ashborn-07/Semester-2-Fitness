@@ -309,5 +309,29 @@ namespace DataAccessLayer
             return null;
         }
 
+        public List<Diet> GetAllDiets()
+        {
+            List<Diet> diets = new List<Diet>();
+
+            Connect();
+            string sql = "SELECT * FROM indiv_diets";
+            Cmd = new MySqlCommand(sql, Con);
+
+            Reader = Cmd.ExecuteReader();
+
+            while(Reader.Read())
+            {
+                int id = Reader.GetInt32(0);
+                string name = Reader.GetString(1);
+                string description = Reader.GetString(2);
+                int chef = Reader.GetInt32(3);
+                byte[] image = (byte[])(Reader["image"]);
+                diets.Add(new Diet(name, description, chef, image));
+            }
+
+            Disconnect();
+
+            return diets;
+        }
     }
 }
