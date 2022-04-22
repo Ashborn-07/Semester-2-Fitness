@@ -53,6 +53,7 @@ namespace BusinessLogicLayer
                 {
                     User newUser = new User(user.UserName, user.Email, user.FirstName, user.LastName, UserType.USER, BCrypt.Net.BCrypt.HashPassword(user.Password));
                     repository.RegisterUser(newUser);
+                    return; //added after sending
                 }
                 throw new ApplicationCustomException("Username and password lenght is invalid. It must be between 3 and 30 characters/symbols.");
             }
