@@ -133,7 +133,7 @@ namespace SLfitnessDesktop
                     service.UpdateDietInformation(new ZeroCarbsDiet(dietId, tbName.Text, tbDescription.Text, (int)numCalories.Value, (int)numFat.Value, user.Id, ConverterOfImageToByte(picBoxDiet.Image)));
                 }
             }
-            catch (MysqlException ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
                 return;

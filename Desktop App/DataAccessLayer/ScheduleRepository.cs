@@ -24,9 +24,14 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable data = new DataTable();
 
-            adapter.Fill(data);
-            
-            Disconnect();
+            try
+            {
+                adapter.Fill(data);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return data;
         }
@@ -43,9 +48,14 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dataTable = new DataTable();
 
-            adapter.Fill(dataTable);
-            
-            Disconnect();
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return dataTable;
         }
@@ -58,14 +68,19 @@ namespace DataAccessLayer
             string sql = "SELECT DISTINCT `location` FROM indiv_schedule";
             Cmd = new MySqlCommand(sql, Con);
 
-            Reader = Cmd.ExecuteReader();
-
-            while (Reader.Read())
+            try
             {
-                vs.Add(Reader["location"].ToString());
-            }
+                Reader = Cmd.ExecuteReader();
 
-            Disconnect();
+                while (Reader.Read())
+                {
+                    vs.Add(Reader["location"].ToString());
+                }
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return vs;
         }
@@ -82,9 +97,13 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dataTable = new DataTable();
 
-            adapter.Fill(dataTable);
-            
-            Disconnect();
+            try
+            {
+                adapter.Fill(dataTable);
+            } finally
+            {
+                Disconnect();
+            }
 
             return dataTable;
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Skf2FAQcaMMMAuUiTP063zpZFTKE43mCWDNCpJa9Qurt26JzkWiDy6JmdVsmAFUmB5dhAwAriNkD3eJkx7VTvA==",
+  "dgSpecHash": "aGVsGNO3VNRfVU3csh0hveeGFWbu3vAFgUcdEWe6TuaRynqgCUbqfle41P5Rr3lOWnzX+L7uWaxDaGTDKY1gsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\UnitTest\\UnitTest.csproj",
+  "projectFilePath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\UnitTest\\UnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vartan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Vartan\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",

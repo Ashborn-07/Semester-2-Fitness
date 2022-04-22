@@ -984,11 +984,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitness\\SLfitnessDesktop.csproj",
+      "projectUniqueName": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitness\\SLfitnessDesktop.csproj",
       "projectName": "SLfitnessDesktop",
-      "projectPath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitness\\SLfitnessDesktop.csproj",
+      "projectPath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitness\\SLfitnessDesktop.csproj",
       "packagesPath": "C:\\Users\\Vartan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitness\\obj\\",
+      "outputPath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitness\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1009,11 +1009,11 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             },
-            "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }

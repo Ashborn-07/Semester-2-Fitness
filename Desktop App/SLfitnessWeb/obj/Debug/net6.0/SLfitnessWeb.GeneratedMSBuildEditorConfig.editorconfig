@@ -8,61 +8,61 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SLfitnessWeb
 build_property.RootNamespace = SLfitnessWeb
-build_property.ProjectDir = C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\
+build_property.ProjectDir = C:\Users\Vartan\Desktop\asd\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Vartan\Desktop\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb
+build_property.MSBuildProjectDirectory = C:\Users\Vartan\Desktop\asd\fitness-individual-assignment-wad-cb07\Desktop App\SLfitnessWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/DietPage.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/DietPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlldFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/ErrorPage.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/ErrorPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Index.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/LogIn.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/LogIn.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nSW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/LogOut.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/LogOut.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9nT3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/MembersPage.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/MembersPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVtYmVyc1BhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/ProductPage.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/ProductPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdFBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Profile.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/RegisterPage.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/RegisterPage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXJQYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/_ViewImports.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/_ViewStart.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Vartan/Desktop/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Shared/_Layout.cshtml]
+[C:/Users/Vartan/Desktop/asd/fitness-individual-assignment-wad-cb07/Desktop App/SLfitnessWeb/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-peopzk7hjn

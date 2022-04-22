@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zx0ToHouLR5AHKzIeXRCKBFZX7ChWK33avZ6BzEm/zQ1e5jEV1UJJVzvbWPhiyZyYTALXBk6lwcrL1dctLrOxA==",
+  "dgSpecHash": "ZzYBdGYxqUfcBpeKNdS6lCM+TcEjzBiYjF5U9poOM/NO0AfW0guIPKEsnKGqqOIQl85ACcXl/54L0/8KK0FZjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitnessWeb\\SLfitnessWeb.csproj",
+  "projectFilePath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\SLfitnessWeb\\SLfitnessWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vartan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Vartan\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",

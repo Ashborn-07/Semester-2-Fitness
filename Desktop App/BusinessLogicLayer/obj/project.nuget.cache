@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hU5HEm8OUgb1+jjKAbnA/JSyE9+R3YgKN1Y4x6pUJSumEL7a1HPcAAwS2573V4pt7rYTo/lPzC/wUI9HSw6SZQ==",
+  "dgSpecHash": "AyA4Y0Rk+SO1+cjimQkBr6LaJxu3qFTttcvyY8GC2ZXgF0P8BQ1lVPBTAzDgz8IRx+snqdOCDdTfsoON5F6LZw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vartan\\Desktop\\fitness-individual-assignment-wad-cb07\\Desktop App\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+  "projectFilePath": "C:\\Users\\Vartan\\Desktop\\asd\\fitness-individual-assignment-wad-cb07\\Desktop App\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vartan\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Vartan\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",

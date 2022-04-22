@@ -24,8 +24,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@Image", diet.Image);
 
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
 
 
             int i = 0;
@@ -59,8 +65,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@Fat", fat);
             Cmd.Parameters.AddWithValue("@Carbs", carbs);
 
-            i = Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                i = Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return i;
         }
@@ -76,8 +88,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@Calories", calories);
             Cmd.Parameters.AddWithValue("@Fat", fat);
 
-            i = Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                i = Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return i;
         }
@@ -95,13 +113,18 @@ namespace DataAccessLayer
 
             int id = -1;
 
-            Reader = Cmd.ExecuteReader();
-            if (Reader.Read())
+            try
             {
-                id = Reader.GetInt32(0);
+                Reader = Cmd.ExecuteReader();
+                if (Reader.Read())
+                {
+                    id = Reader.GetInt32(0);
+                }
             }
-
-            Disconnect();
+            finally
+            {
+                Disconnect();
+            }
 
             return id;
         }
@@ -116,8 +139,14 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dt = new DataTable();
 
-            adapter.Fill(dt);
-            Disconnect();
+            try
+            {
+                adapter.Fill(dt);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return dt;
         }
@@ -132,8 +161,14 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dataTable = new DataTable();
 
-            adapter.Fill(dataTable);
-            Disconnect();
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return dataTable;
         }
@@ -148,8 +183,14 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dataTable = new DataTable();
 
-            adapter.Fill(dataTable);
-            Disconnect();
+            try
+            {
+                adapter.Fill(dataTable);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return dataTable;
         }
@@ -179,14 +220,19 @@ namespace DataAccessLayer
             Cmd = new MySqlCommand(sql2, Con);
             Cmd.Parameters.AddWithValue("@id", id);
 
-            Reader = Cmd.ExecuteReader();
-
-            if (Reader.Read())
+            try
             {
-                type = "Healthy";
-            }
+                Reader = Cmd.ExecuteReader();
 
-            Disconnect();
+                if (Reader.Read())
+                {
+                    type = "Healthy";
+                }
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return type;
         }
@@ -211,28 +257,33 @@ namespace DataAccessLayer
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@Id", id);
 
-            Reader = Cmd.ExecuteReader();
-
-            if (Reader.Read())
+            try
             {
-                string name = Reader.GetString(1);
-                string description = Reader.GetString(2);
-                int calories = Reader.GetInt32(6);
-                int fat = Reader.GetInt32(7);
-                byte[] image = (byte[])(Reader["image"]);
+                Reader = Cmd.ExecuteReader();
 
-                if (type.Equals("Healthy"))
+                if (Reader.Read())
                 {
-                    int carbs = Reader.GetInt32(8);
-                    diet = new HealthyDiet(name, description, calories, fat, chef, image, carbs);
-                }
-                else
-                {
-                    diet = new ZeroCarbsDiet(name, description, calories, fat, chef, image);
+                    string name = Reader.GetString(1);
+                    string description = Reader.GetString(2);
+                    int calories = Reader.GetInt32(6);
+                    int fat = Reader.GetInt32(7);
+                    byte[] image = (byte[])(Reader["image"]);
+
+                    if (type.Equals("Healthy"))
+                    {
+                        int carbs = Reader.GetInt32(8);
+                        diet = new HealthyDiet(name, description, calories, fat, chef, image, carbs);
+                    }
+                    else
+                    {
+                        diet = new ZeroCarbsDiet(name, description, calories, fat, chef, image);
+                    }
                 }
             }
-
-            Disconnect();
+            finally
+            {
+                Disconnect();
+            }
 
             return diet;
         }
@@ -249,17 +300,23 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@image", image);
             Cmd.Parameters.AddWithValue("@id", id);
 
-            Cmd.ExecuteNonQuery();
+            try
+            {
+                Cmd.ExecuteNonQuery();
 
-            sql = "UPDATE indiv_healthy_diets SET `calories`=@calories, `fat`=@fat, `carbs`=@carbs WHERE id=@id";
-            Cmd = new MySqlCommand(sql, Con);
-            Cmd.Parameters.AddWithValue("@calories", calories);
-            Cmd.Parameters.AddWithValue("@fat", fat);
-            Cmd.Parameters.AddWithValue("@carbs", carbs);
-            Cmd.Parameters.AddWithValue("@id", id);
+                sql = "UPDATE indiv_healthy_diets SET `calories`=@calories, `fat`=@fat, `carbs`=@carbs WHERE id=@id";
+                Cmd = new MySqlCommand(sql, Con);
+                Cmd.Parameters.AddWithValue("@calories", calories);
+                Cmd.Parameters.AddWithValue("@fat", fat);
+                Cmd.Parameters.AddWithValue("@carbs", carbs);
+                Cmd.Parameters.AddWithValue("@id", id);
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public void UpdateZeroCarbsDietInfo(int id, string name, string description, int calories, int fat, byte[] image)
@@ -274,16 +331,22 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@image", image);
             Cmd.Parameters.AddWithValue("@id", id);
 
-            Cmd.ExecuteNonQuery();
+            try
+            {
+                Cmd.ExecuteNonQuery();
 
-            sql = "UPDATE indiv_zerocarbs_diets SET `calories`=@calories, `fat`=@fat WHERE id=@id";
-            Cmd = new MySqlCommand(sql, Con);
-            Cmd.Parameters.AddWithValue("@calories", calories);
-            Cmd.Parameters.AddWithValue("@fat", fat);
-            Cmd.Parameters.AddWithValue("@id", id);
+                sql = "UPDATE indiv_zerocarbs_diets SET `calories`=@calories, `fat`=@fat WHERE id=@id";
+                Cmd = new MySqlCommand(sql, Con);
+                Cmd.Parameters.AddWithValue("@calories", calories);
+                Cmd.Parameters.AddWithValue("@fat", fat);
+                Cmd.Parameters.AddWithValue("@id", id);
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public Image GetImage(int id)
@@ -294,18 +357,23 @@ namespace DataAccessLayer
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@Id", id);
 
-            Reader = Cmd.ExecuteReader();
-
-            if (Reader.Read())
+            try
             {
-                byte[] image = (byte[])(Reader["image"]);
-                MemoryStream ms = new MemoryStream(image);
-                Image img = new Bitmap(ms);
+                Reader = Cmd.ExecuteReader();
+
+                if (Reader.Read())
+                {
+                    byte[] image = (byte[])(Reader["image"]);
+                    MemoryStream ms = new MemoryStream(image);
+                    Image img = new Bitmap(ms);
+                    Disconnect();
+                    return img;
+                }
+            } finally
+            {
                 Disconnect();
-                return img;
             }
 
-            Disconnect();
             return null;
         }
 
@@ -317,19 +385,23 @@ namespace DataAccessLayer
             string sql = "SELECT * FROM indiv_diets";
             Cmd = new MySqlCommand(sql, Con);
 
-            Reader = Cmd.ExecuteReader();
-
-            while (Reader.Read())
+            try
             {
-                int id = Reader.GetInt32(0);
-                string name = Reader.GetString(1);
-                string description = Reader.GetString(2);
-                int chef = Reader.GetInt32(3);
-                byte[] image = (byte[])(Reader["image"]);
-                diets.Add(new Diet(name, description, chef, image));
-            }
+                Reader = Cmd.ExecuteReader();
 
-            Disconnect();
+                while (Reader.Read())
+                {
+                    int id = Reader.GetInt32(0);
+                    string name = Reader.GetString(1);
+                    string description = Reader.GetString(2);
+                    int chef = Reader.GetInt32(3);
+                    byte[] image = (byte[])(Reader["image"]);
+                    diets.Add(new Diet(name, description, chef, image));
+                }
+            } finally
+            {
+                Disconnect();
+            }
 
             return diets;
         }

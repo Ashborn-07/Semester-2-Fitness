@@ -21,8 +21,14 @@ namespace DataAccessLayer
             DataTable dt = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
 
-            adapter.Fill(dt);
-            Disconnect();
+            try
+            {
+                adapter.Fill(dt);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return dt;
         }
@@ -41,8 +47,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@type", product.Type.ToString());
             Cmd.Parameters.AddWithValue("@image", product.Image);
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             int id = GetProductId(product.Name, product.Brand, product.Description);
 
@@ -76,8 +88,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@flavour", flavour.ToString());
             Cmd.Parameters.AddWithValue("@goal", goal.ToString());
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         private void AddProtein(int id, ProteinFlavour flavour, string occurance, Goal goal)
@@ -92,8 +110,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@occurance", occurance);
             Cmd.Parameters.AddWithValue("@goal", goal.ToString());
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         private void AddClothing(int id, ClothType type, ClothSize size)
@@ -107,8 +131,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@type", type.ToString());
             Cmd.Parameters.AddWithValue("@size", size.ToString());
 
-            Cmd.ExecuteNonQuery();
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         private int GetProductId(string name, string brand, string description)
@@ -124,14 +154,19 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@brand", brand);
             Cmd.Parameters.AddWithValue("@description", description);
 
-            Reader = Cmd.ExecuteReader();
-
-            if (Reader.Read())
+            try
             {
-                id = Reader.GetInt32(0);
-            }
+                Reader = Cmd.ExecuteReader();
 
-            Disconnect();
+                if (Reader.Read())
+                {
+                    id = Reader.GetInt32(0);
+                }
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return id;
         }
@@ -163,7 +198,7 @@ namespace DataAccessLayer
             {
                 if (firstFilterFound == true)
                 {
-                    switch(price)
+                    switch (price)
                     {
                         case "0 - 100":
                             sql = sql + " AND price >= 0 AND price <= 100";
@@ -204,9 +239,14 @@ namespace DataAccessLayer
             MySqlDataAdapter adapter = new MySqlDataAdapter(Cmd);
             DataTable dt = new DataTable();
 
-            adapter.Fill(dt);
-
-            Disconnect();
+            try
+            {
+                adapter.Fill(dt);
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return dt;
         }
@@ -221,7 +261,8 @@ namespace DataAccessLayer
             if (type == "brand")
             {
                 sql = sql + "`brand` FROM indiv_products";
-            } else if (type == "type")
+            }
+            else if (type == "type")
             {
                 sql = sql + "`type` FROM indiv_products";
             }
@@ -235,14 +276,19 @@ namespace DataAccessLayer
 
             Cmd = new MySqlCommand(sql, Con);
 
-            Reader = Cmd.ExecuteReader();
-
-            while (Reader.Read())
+            try
             {
-                filterBox.Add(Reader.GetString(0));
-            }
+                Reader = Cmd.ExecuteReader();
 
-            Disconnect();
+                while (Reader.Read())
+                {
+                    filterBox.Add(Reader.GetString(0));
+                }
+            }
+            finally
+            {
+                Disconnect();
+            }
 
             return filterBox;
         }
@@ -255,14 +301,19 @@ namespace DataAccessLayer
             Cmd = new MySqlCommand(sql, Con);
             Cmd.Parameters.AddWithValue("@id", productId);
 
-            Cmd.ExecuteNonQuery();
-
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public Product GetProductById(int id)
         {
-            Product product = null; 
+            Product product = null;
             Connect();
 
             string sql = "SELECT * FROM indiv_products AS p INNER JOIN indiv_clothes AS c ON c.id = p.id WHERE p.id = @id";
@@ -344,22 +395,27 @@ namespace DataAccessLayer
             string sql = "SELECT * from indiv_products";
             Cmd = new MySqlCommand(sql, Con);
 
-            Reader = Cmd.ExecuteReader();
-
-            while (Reader.Read())
+            try
             {
-                int id = Reader.GetInt32(0);
-                string name = Reader.GetString(1);
-                string brand = Reader.GetString(2);
-                string description = Reader.GetString(3);
-                decimal price = Reader.GetDecimal(4);
-                string type = Reader.GetString(5);
-                byte[] image = (byte[])(Reader["image"]);
+                Reader = Cmd.ExecuteReader();
 
-                products.Add(new Product(id, name, brand, description, (ProductType)Enum.Parse(typeof(ProductType), type), price, image));
+                while (Reader.Read())
+                {
+                    int id = Reader.GetInt32(0);
+                    string name = Reader.GetString(1);
+                    string brand = Reader.GetString(2);
+                    string description = Reader.GetString(3);
+                    decimal price = Reader.GetDecimal(4);
+                    string type = Reader.GetString(5);
+                    byte[] image = (byte[])(Reader["image"]);
+
+                    products.Add(new Product(id, name, brand, description, (ProductType)Enum.Parse(typeof(ProductType), type), price, image));
+                }
             }
-
-            Disconnect();
+            finally
+            {
+                Disconnect();
+            }
 
             return products;
         }
@@ -381,9 +437,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@occurance", protein.Occurance);
             Cmd.Parameters.AddWithValue("@goal", protein.Goal.ToString());
 
-            Cmd.ExecuteNonQuery();
-
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public void UpdateClothing(Clothing clothing)
@@ -402,9 +463,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@clothType", clothing.ClothType.ToString());
             Cmd.Parameters.AddWithValue("@size", clothing.ClothSize.ToString());
 
-            Cmd.ExecuteNonQuery();
-
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public void UpdateVitamins(Vitamins vitamins)
@@ -423,9 +489,14 @@ namespace DataAccessLayer
             Cmd.Parameters.AddWithValue("@flavour", vitamins.Flavour.ToString());
             Cmd.Parameters.AddWithValue("@goal", vitamins.Goal.ToString());
 
-            Cmd.ExecuteNonQuery();
-
-            Disconnect();
+            try
+            {
+                Cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public bool CheckIfProductExists(Product product)
@@ -451,7 +522,8 @@ namespace DataAccessLayer
                 }
 
                 return false;
-            } finally
+            }
+            finally
             {
                 Disconnect();
             }
